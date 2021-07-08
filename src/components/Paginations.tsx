@@ -39,11 +39,11 @@ const Pagination: React.FC<TProps> = ({currentPage, itemsPerPage, totalItems, pa
                 {pageNumbers.map(num =>{
                     
                     return (
-                        <li key={num} className={currentPage===num? 'paging-link active':'paging-link'}>
-                        <a onClick={() => paginate(num)}>
-                            {num}
-                        </a>
-                        </li>
+                        <span key={num} className={currentPage===num? 'paging-link active':'paging-link'}>
+                            <span onClick={() => paginate(num)}>
+                                {num}
+                            </span>
+                        </span>
                     )
                 } )}
                 <span className={currentPage!==pageNumbers[pageNumbers.length-1]?'pagebtn':'pagebtn disabled'} onClick={nextPage}>&#62;</span>
