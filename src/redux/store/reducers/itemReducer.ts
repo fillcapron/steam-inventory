@@ -1,8 +1,5 @@
 import {ItemActionType, ItemAction, ItemState} from '../../types/item'
 
-
-
-
 const initialState: ItemState = {
     items: [],
     loading: false,

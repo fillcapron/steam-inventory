@@ -1,4 +1,4 @@
-import { usedTypedSelector } from "../../hooks/useTypedSelector"
+import { usedTypedSelector } from "../hooks/useTypedSelector"
 
 
 const ItemPage:React.FC = ({match}:any) => {

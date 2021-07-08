@@ -8,9 +8,8 @@ export const fetchItems = (state: string) => {
             dispatch({type: ItemActionType.FETCH_ITEMS})
             const response = await fetch('http://127.0.0.1:5000/api', {method:"POST",body: JSON.stringify({"id": state})})
             const data = await response.json()
-            dispatch({type: ItemActionType.FETCH_ITEMS_SUCCESS, payload: data})
+            // dispatch({type: ItemActionType.FETCH_ITEMS_SUCCESS, payload: data})
             if (data.error) {
-                console.log('error 123')
                 dispatch({type: ItemActionType.FETCH_ITEMS_ERROR, payload: 'Слишком частый запрос'})
             }
             else {
@@ -19,7 +18,7 @@ export const fetchItems = (state: string) => {
             
         } catch (e) {
             console.error(e)
-            dispatch({type: ItemActionType.FETCH_ITEMS_ERROR, payload: 'Возникла ошибка при загрузке инвенторя'})
+            dispatch({type: ItemActionType.FETCH_ITEMS_ERROR, payload: 'Возникла ошибка при загрузке инвентаря'})
         }
     }
 }

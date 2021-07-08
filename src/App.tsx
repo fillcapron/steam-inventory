@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import Header from './blocks/header/header';
-import Home from './pages/Home/home'
-import ItemPage from './pages/ItemPage/itemPage'
+import Header from './components/blocks/header';
+import Home from './pages/home'
+import ItemPage from './pages/itemPage'
 
 function App() {
   return (

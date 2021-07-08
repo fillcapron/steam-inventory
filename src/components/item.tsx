@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from 'react-router-dom'
-import {Items} from '../../../types/types'
+import {Items} from '../types/types'
 
 
 type TProps = {
