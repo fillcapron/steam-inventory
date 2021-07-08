@@ -22,9 +22,18 @@ const ItemList: React.FC = () => {
     if (error) return <h1>{error}</h1>
 
     const sortCount = () => {
-        !sortItems
-        ?(() => (dispatch(sortUP(items)), setSortItems(true), setIconArrow(['&#9650;'])))()
-        : (() => (dispatch(sortDOWN(items)), setSortItems(false), setIconArrow(['&#9660;'])))()
+        // !sortItems
+        // ?(() => (dispatch(sortUP(items)), setSortItems(true), setIconArrow(['&#9650;'])))()
+        // : (() => (dispatch(sortDOWN(items)), setSortItems(false), setIconArrow(['&#9660;'])))()
+        if (!sortItems) {
+            dispatch(sortUP(items))
+            setSortItems(true)
+            setIconArrow(['&#9650;'])
+        } else {
+            dispatch(sortDOWN(items))
+            setSortItems(false)
+            setIconArrow(['&#9660;'])
+        }
    }
 
     return(
