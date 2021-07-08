@@ -5,7 +5,7 @@ const ItemPage:React.FC = ({match}:any) => {
     const {items} = usedTypedSelector(state => state.item)
  
     //Найти элемент в массиве до рендера без useEffect
-    const item = items.find(elem => { if(elem.name === match.params.id) return elem})
+    const item = items.find(elem => elem.name === match.params.id)
 
     return( 
         <div className="container">

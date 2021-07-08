@@ -1,17 +1,24 @@
 import React, { useEffect, useState} from "react"
 import { useDispatch } from "react-redux"
 import { usedTypedSelector } from "../../hooks/useTypedSelector"
-import { fetchItems } from "../../store/action/item"
+import { fetchItems, sortUP, sortDOWN } from "../../redux/store/action/itemsActions"
+import usePagination from "../../hooks/usePagination"
+import Input from './component/input'
 import ItemList from './component/ItemList'
 import Pagination from "../../components/Paginations"
+
 
 
 const Home: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
     const [id, setId] = useState('')
-    const [currentPage, setCurrentPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [currentPage, currentItems, itemsPerPage,index, paginate] = usePagination(items)
+    const {indexOfLastItem, indexOfFirstItem} = index
+    const [sortItems, setSortItems] = useState(false)
+    const [iconArrow, setIconArrow] = useState([''])
     const dispatch = useDispatch()
+ 
+
     const handler = (e: any) => setId(e.target.value)
 
     useEffect(()=> {
@@ -23,27 +30,25 @@ const Home: React.FC = () => {
         dispatch(fetchItems(id))
     }
 
-    const indexOfLastItem = currentPage * itemsPerPage
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
-    
-    const paginate = (pageNumber:any) => setCurrentPage(pageNumber)
-
+   const sortCount = () => {
+        !sortItems
+        ?(() => (dispatch(sortUP(items)), setSortItems(true), setIconArrow(['&#9650;'])))()
+        : (() => (dispatch(sortDOWN(items)), setSortItems(false), setIconArrow(['&#9660;'])))()
+   }
+   console.log(error)
     return(
         <div className="content">
-            <div className="input-group mb-3 mt-3">
-                <input type="text" className="form-control" value={id} onChange={(e)=> handler(e)} placeholder="Введите свой SteamID"/>
-                <button className="btn btn-success" onClick={() => getInventory()}>Fetch</button>
-            </div>
+            <Input id={id} handler={handler} getInventory={getInventory}/>
             {
-                items.length ?
+                items.length?
                 <div>
                 <div className="item-listing-header">
                 <div className="item-listing-header-name">
                     <span>название</span>
                     </div>
-                <div className="item-listing-header-count">
-                    кол-во
+                <div className="item-listing-header-count" onClick={sortCount}>
+                    <span>кол-во</span>
+                    <span className="sort-arrow">{iconArrow}</span>
                 </div>
                 </div>
                 <ItemList props={{currentItems, loading, error}}/>
@@ -52,12 +57,11 @@ const Home: React.FC = () => {
                 paginate={paginate} 
                 itemsPerPage={itemsPerPage} 
                 totalItems={items.length}
-                resultSearchNum={{indexOfLastItem,indexOfFirstItem}}
+                resultSearchNum={{indexOfLastItem, indexOfFirstItem}}
                 />
-                </div> :
-                <p>Введите свой Steam id</p>
+                </div>
+                :<p>Введите свой Steam id</p>
             }
-            
         </div>
     )
 }

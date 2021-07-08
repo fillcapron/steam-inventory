@@ -16,6 +16,7 @@
         text-transform: uppercase;
         &:hover {
             background-color: #324965;
+            cursor: pointer;
         }
     }
     &-count {
@@ -25,6 +26,7 @@
         border-left: 1px solid #404040;
         &:hover {
             background-color: #324965;
+            cursor: pointer;
         }
     }
 }
@@ -33,3 +35,11 @@
     color: #AFAFAF;
 }
 
+.sort-arrow {
+    display: inline-block;
+    font-size: 80%;
+    margin-left: 4px;
+    &:hover {
+        transform: rotate(180deg);
+    }
+}

@@ -1,9 +1,10 @@
 import React from "react"
 import {Link} from 'react-router-dom'
+import {Items} from '../../../types/types'
 
 
 type TProps = {
-    item: any
+    item: Items  
 }
 
 const Item:React.FC<TProps> = ({item}) => {

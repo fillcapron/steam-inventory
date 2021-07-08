@@ -11,24 +11,27 @@ type TProps = {
 //можно попробовать сделать как компонент
 
 const Pagination: React.FC<TProps> = ({currentPage, itemsPerPage, totalItems, paginate, resultSearchNum}) => {
+
     const {indexOfFirstItem, indexOfLastItem} = resultSearchNum
     const pageNumbers:number[] = []
+
 
     for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++){
         pageNumbers.push(i)
     }
+
     const prevPage = () => {
         if (currentPage!==1) paginate(currentPage - 1)
     }
 
     const nextPage = () => {
-        if (currentPage!== pageNumbers[pageNumbers.length-1]) paginate(currentPage + 1)
+        if (currentPage!== pageNumbers[pageNumbers.length - 1]) paginate(currentPage + 1)
     }
     
     return (
         <div className="paging">
             <div className="paging-result">
-                Результаты {indexOfFirstItem + 1}-{indexOfLastItem <= totalItems?indexOfLastItem:totalItems} из {totalItems}
+                Результаты {indexOfFirstItem}-{indexOfLastItem <= totalItems?indexOfLastItem:totalItems} из {totalItems}
             </div>
             <nav>
             <ul className="paging-controls">

@@ -7,7 +7,9 @@ export interface ItemState {
 export enum ItemActionType {
     FETCH_ITEMS = 'FETCH_ITEMS',
     FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS',
-    FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR'
+    FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR',
+    SORT_ITEM_UP = 'SORT_UP',
+    SORT_ITEM_DOWN = 'SORT_DOWN'
 }
 
 interface FetchItemsActions {
@@ -22,4 +24,9 @@ interface FetchItemsErrorActions {
     payload: string
 }
 
-export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions
+interface SortItem {
+    type: ItemActionType.SORT_ITEM_UP | ItemActionType.SORT_ITEM_DOWN;
+    payload: any[]
+}
+
+export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItem
