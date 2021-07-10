@@ -1,4 +1,4 @@
-import {PriceActionType, PriceAction, priceState, PriceItem } from "../../types/item"
+import {PriceActionType, PriceAction, priceState } from "../../types/item"
 
 const initialState: priceState = {
     item: {},
