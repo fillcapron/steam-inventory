@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from "react"
 import { useDispatch } from "react-redux"
 import { fetchItems } from "../redux/store/action/itemsActions"
-import Input from '../components/input'
+import Input from '../components/inputFetch'
 import ItemList from '../components/ItemList'
+import Sidebar from "../components/blocks/sidebar"
 
 const Home: React.FC = () => {
 
@@ -21,8 +22,17 @@ const Home: React.FC = () => {
 
     return(
         <div className="content">
-            <Input id={id} handler={handler} getInventory={getInventory}/>
-            <ItemList/>
+            <div className="row">
+                <Input id={id} handler={handler} getInventory={getInventory}/>
+                <div className="col-8">
+                    <ItemList/>
+                </div>
+                <div className="col-3">
+                    <div className="item-search">
+                        <Sidebar/>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

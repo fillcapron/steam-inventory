@@ -1,10 +1,8 @@
-
 interface InputProps {
     id: string,
     getInventory: Function,
     handler: Function
 }
-
 
 const Input:React.FC<InputProps> = ({id, getInventory, handler}) => {
     return(
@@ -14,4 +12,5 @@ const Input:React.FC<InputProps> = ({id, getInventory, handler}) => {
             </div>
     )
 }
+
 export default Input

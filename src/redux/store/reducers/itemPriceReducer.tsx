@@ -1,7 +1,7 @@
 import {PriceActionType, PriceAction, priceState } from "../../types/item"
 
 const initialState: priceState = {
-    item: {},
+    priceItem: {},
     loading: false,
     error: null
 }
@@ -9,11 +9,11 @@ const initialState: priceState = {
 export const itemPrice = (state = initialState, action:PriceAction):priceState => {
     switch(action.type){
         case PriceActionType.FETCH_PRICE:
-            return {...state, loading: true, error: null, item: {}}
+            return {...state, loading: true, error: null, priceItem:{}}
         case PriceActionType.FETCH_PRICE_SUCCESS:
-            return {...state, loading:false, error: null, item: action.payload}
+            return {...state, loading:false, error: null, priceItem: action.payload}
         case PriceActionType.FETCH_PRICE_ERROR:
-            return {...state, loading:false, error: action.payload, item:{}}
+            return {...state, loading:false, error: action.payload, priceItem:{}}
         default:
             return state
     }

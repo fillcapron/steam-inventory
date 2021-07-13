@@ -1,8 +1,6 @@
-//compress: false
-@import 'bootstrap.min.css';
+@import './bootstrap.min.css';
 
-@black: #000;
-
+$black: #000000;
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -20,8 +18,8 @@ a {
 text-decoration: none;
 }
 
-
 @import './_header';
-@import './itemlist';
+@import './_itemlist';
+@import './_sidebar';
 @import './_paginations';
-@import './item';
+@import './_item';

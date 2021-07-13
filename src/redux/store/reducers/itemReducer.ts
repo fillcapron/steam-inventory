@@ -17,7 +17,9 @@ export const itemReducer = (state = initialState, action:ItemAction):ItemState =
         case ItemActionType.SORT_ITEM_UP:
             return {...state, loading:false, error: null, items: action.payload}
         case ItemActionType.SORT_ITEM_DOWN:
-                return {...state, loading:false, error: null, items: action.payload}
+            return {...state, loading:false, error: null, items: action.payload}
+        case ItemActionType.SEARCH_ITEM:
+            return {...state, loading:false, error: null, items: action.payload}
         default:
             return state
     }

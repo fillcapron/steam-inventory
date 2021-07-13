@@ -7,8 +7,6 @@ import usePagination from "../hooks/usePagination"
 import Pagination from "./Paginations"
 import { sortDOWN, sortUP } from "../redux/store/action/itemsActions"
 
-
-
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
     const [currentPage, currentItems, itemsPerPage, index, paginate] = usePagination(items)
@@ -22,9 +20,6 @@ const ItemList: React.FC = () => {
     if (error) return <h1>{error}</h1>
 
     const sortCount = () => {
-        // !sortItems
-        // ?(() => (dispatch(sortUP(items)), setSortItems(true), setIconArrow(['&#9650;'])))()
-        // : (() => (dispatch(sortDOWN(items)), setSortItems(false), setIconArrow(['&#9660;'])))()
         if (!sortItems) {
             dispatch(sortUP(items))
             setSortItems(true)
@@ -35,9 +30,8 @@ const ItemList: React.FC = () => {
             setIconArrow(['&#9660;'])
         }
    }
-
     return(
-        <div>
+        <>
         {
             items.length ?
             <div>
@@ -65,7 +59,7 @@ const ItemList: React.FC = () => {
         </div>
         : 'Введите свой Steam ID'
         }
-        </div>
+        </>
     )
 }
 

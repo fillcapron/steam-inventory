@@ -33,3 +33,10 @@ export const sortDOWN = (items:Items[]) => {
         dispatch({type: ItemActionType.SORT_ITEM_DOWN, payload: items.sort((a:Items,b:Items) => a.count - b.count)})
     }
 }
+
+export const searchItem = (items:Items[], str: string) => {
+    console.log(str)
+    return (dispatch: Dispatch<ItemAction>) => {
+        dispatch({type: ItemActionType.SORT_ITEM_DOWN, payload: items.filter((a:Items) => a.name.toLocaleLowerCase().includes(str.toLocaleLowerCase()))})
+    }
+}

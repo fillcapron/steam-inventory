@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Header from './components/blocks/header';
 import Home from './pages/home'
 import ItemPage from './pages/itemPage'
+import './scss/style.scss'
 
 function App() {
   return (
