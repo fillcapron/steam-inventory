@@ -23,6 +23,9 @@
         &:hover {
             background-color: #324965;
             cursor: pointer;
+            .sort-arrow {
+                transform: rotate(180deg);
+            }
         }
     }
 }
@@ -35,7 +38,4 @@
     display: inline-block;
     font-size: 80%;
     margin-left: 4px;
-    &:hover {
-        transform: rotate(180deg);
-    }
 }

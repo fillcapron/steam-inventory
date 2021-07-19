@@ -3,13 +3,16 @@ export interface ItemState {
     loading: boolean;
     error: string | null
 }
-
 export interface PriceItem {
     itemName: string,
     buyPrice: number,
     sellPrice: number
 }
-
+export interface Search {
+    searchValue: string;
+    loading: boolean;
+    error: string | null
+}
 export interface priceState {
     priceItem: any;
     loading: boolean;
@@ -50,7 +53,7 @@ interface SortItem {
 
 interface SearchItem {
     type: ItemActionType.SEARCH_ITEM
-    payload: any[]
+    payload: string
 }
 
 interface FetchPriceActions {

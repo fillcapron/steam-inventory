@@ -9,7 +9,9 @@ import { sortDOWN, sortUP } from "../redux/store/action/itemsActions"
 
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
-    const [currentPage, currentItems, itemsPerPage, index, paginate] = usePagination(items)
+    const {searchValue} = usedTypedSelector(state => state.search)
+    const filtredItems = items.filter((item) =>item.name.toLowerCase().includes(searchValue))
+    const [currentPage, currentItems, itemsPerPage, index, paginate, countItems] = usePagination(filtredItems)
     const {indexOfLastItem, indexOfFirstItem} = index
     const [sortItems, setSortItems] = useState(false)
     const [iconArrow, setIconArrow] = useState([''])
@@ -23,13 +25,14 @@ const ItemList: React.FC = () => {
         if (!sortItems) {
             dispatch(sortUP(items))
             setSortItems(true)
-            setIconArrow(['&#9650;'])
+            setIconArrow(['▲'])
         } else {
             dispatch(sortDOWN(items))
             setSortItems(false)
-            setIconArrow(['&#9660;'])
+            setIconArrow(['▼'])
         }
    }
+   
     return(
         <>
         {
@@ -47,13 +50,13 @@ const ItemList: React.FC = () => {
             {
             currentItems.length? 
             currentItems.map((elem:Items, i:number) => <Item item={elem} key={i}/>)
-            :'Нет предметов в инвенторе'
+            :'Нет предметов в инвентаре'
             }
         <Pagination
                 currentPage={currentPage} 
                 paginate={paginate} 
                 itemsPerPage={itemsPerPage} 
-                totalItems={items.length}
+                countItems={countItems}
                 resultSearchNum={{indexOfLastItem, indexOfFirstItem}}
                 />
         </div>

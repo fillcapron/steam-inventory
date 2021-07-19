@@ -8,7 +8,6 @@ export const fetchItems = (state: string) => {
             dispatch({type: ItemActionType.FETCH_ITEMS})
             const response = await fetch('https://steam-inventory-test.herokuapp.com/api', {method:"POST",body: JSON.stringify({"id": state})})
             const data = await response.json()
-            // dispatch({type: ItemActionType.FETCH_ITEMS_SUCCESS, payload: data})
             if (data.error) {
                 dispatch({type: ItemActionType.FETCH_ITEMS_ERROR, payload: 'Слишком частый запрос'})
             }
@@ -34,9 +33,8 @@ export const sortDOWN = (items:Items[]) => {
     }
 }
 
-export const searchItem = (items:Items[], str: string) => {
-    console.log(str)
+export const searchItem = (str: string) => {
     return (dispatch: Dispatch<ItemAction>) => {
-        dispatch({type: ItemActionType.SORT_ITEM_DOWN, payload: items.filter((a:Items) => a.name.toLocaleLowerCase().includes(str.toLocaleLowerCase()))})
+        dispatch({type: ItemActionType.SEARCH_ITEM, payload: str.toLocaleLowerCase()})
     }
 }

@@ -3,20 +3,18 @@
 type TProps = {
     currentPage: number;
     itemsPerPage: number;
-    totalItems: number;
+    countItems: number;
     paginate: any;
     resultSearchNum: any;
 }
 
-//можно попробовать сделать как компонент
-
-const Pagination: React.FC<TProps> = ({currentPage, itemsPerPage, totalItems, paginate, resultSearchNum}) => {
+const Pagination: React.FC<TProps> = ({currentPage, itemsPerPage, countItems, paginate, resultSearchNum}) => {
 
     const {indexOfFirstItem, indexOfLastItem} = resultSearchNum
     const pageNumbers:number[] = []
 
 
-    for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++){
+    for(let i = 1; i <= Math.ceil(countItems / itemsPerPage); i++){
         pageNumbers.push(i)
     }
 
@@ -31,7 +29,7 @@ const Pagination: React.FC<TProps> = ({currentPage, itemsPerPage, totalItems, pa
     return (
         <div className="paging">
             <div className="paging-result">
-                Результаты {indexOfFirstItem}-{indexOfLastItem <= totalItems?indexOfLastItem:totalItems} из {totalItems}
+                Результаты {indexOfFirstItem}-{indexOfLastItem <= countItems?indexOfLastItem:countItems} из {countItems}
             </div>
             <nav>
             <ul className="paging-controls">

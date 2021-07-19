@@ -6,7 +6,6 @@ import ItemList from '../components/ItemList'
 import Sidebar from "../components/blocks/sidebar"
 
 const Home: React.FC = () => {
-
     const [id, setId] = useState('')
     const dispatch = useDispatch()
     const handler = (e: any) => setId(e.target.value)

@@ -1,13 +1,19 @@
 import { useState } from "react"
+import { Items } from "../types/types"
 
-const usePagination = (items:any[]):any[] => {
-    
+
+const usePagination = (items:Items[]):any[] => {
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage] = useState(10)
 
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+    let currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+    if (!currentItems.length){
+        setCurrentPage(1)
+        currentItems = items
+    }
+    const countItems = items.length
 
     const indexItem = {
         indexOfLastItem: indexOfLastItem ,
@@ -21,7 +27,8 @@ const usePagination = (items:any[]):any[] => {
             currentItems,
             itemsPerPage,
             indexItem,
-            paginate 
+            paginate,
+            countItems 
     ]
 }
 
