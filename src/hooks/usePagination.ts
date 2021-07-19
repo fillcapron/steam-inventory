@@ -9,7 +9,7 @@ const usePagination = (items:Items[]):any[] => {
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     let currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
-    if (!currentItems.length){
+    if (!currentItems.length && items.length){
         setCurrentPage(1)
         currentItems = items
     }
