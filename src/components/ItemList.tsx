@@ -5,7 +5,8 @@ import {Items} from '../types/types'
 import { usedTypedSelector } from "../hooks/useTypedSelector"
 import usePagination from "../hooks/usePagination"
 import Pagination from "./Paginations"
-import { sortDOWN, sortUP } from "../redux/store/action/itemsActions"
+import { sortDOWN, sortItemsName, sortUP } from "../redux/store/action/itemsActions"
+
 
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
@@ -13,16 +14,17 @@ const ItemList: React.FC = () => {
     const filtredItems = items.filter((item) =>item.name.toLowerCase().includes(searchValue))
     const [currentPage, currentItems, itemsPerPage, index, paginate, countItems] = usePagination(filtredItems)
     const {indexOfLastItem, indexOfFirstItem} = index
-    const [sortItems, setSortItems] = useState(false)
+    const [isSort, setSortItems] = useState(false)
     const [iconArrow, setIconArrow] = useState([''])
-    
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch()
+    
     if (loading) return <h1>Идет загрузка</h1>
     if (error) return <h1>{error}</h1>
+    if(!items.length) return <p>Введите свой Steam ID</p>
 
     const sortCount = () => {
-        if (!sortItems) {
+        if (!isSort) {
             dispatch(sortUP(items))
             setSortItems(true)
             setIconArrow(['▲'])
@@ -32,14 +34,18 @@ const ItemList: React.FC = () => {
             setIconArrow(['▼'])
         }
    }
+
+   const sortName = () => {
+       dispatch(sortItemsName(items))
+   }
    
     return(
         <>
         {
-            items.length ?
+            currentItems.length?
             <div>
             <div className="item-listing-header">
-                <div className="item-listing-header-name">
+                <div className="item-listing-header-name" onClick={sortName}>
                     <span>название</span>
                     </div>
                 <div className="item-listing-header-count" onClick={sortCount}>
@@ -48,9 +54,7 @@ const ItemList: React.FC = () => {
                 </div>
             </div>
             {
-            currentItems.length? 
             currentItems.map((elem:Items, i:number) => <Item item={elem} key={i}/>)
-            :'Нет предметов в инвентаре'
             }
         <Pagination
                 currentPage={currentPage} 
@@ -60,7 +64,7 @@ const ItemList: React.FC = () => {
                 resultSearchNum={{indexOfLastItem, indexOfFirstItem}}
                 />
         </div>
-        : 'Введите свой Steam ID'
+        : 'Нет пердметов в инвентаре'
         }
         </>
     )

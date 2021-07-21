@@ -1,3 +1,5 @@
+import { Items } from "../../types/types"
+
 export interface ItemState {
     items: any[];
     loading: boolean;
@@ -25,7 +27,8 @@ export enum ItemActionType {
     FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR',
     SORT_ITEM_UP = 'SORT_UP',
     SORT_ITEM_DOWN = 'SORT_DOWN',
-    SEARCH_ITEM = 'SEARCH_ITEM'
+    SEARCH_ITEM = 'SEARCH_ITEM',
+    SORT_ITEM_NAME = 'SORT_NAME'
 }
 
 export enum PriceActionType {
@@ -39,18 +42,22 @@ interface FetchItemsActions {
 }
 interface FetchItemsSuccessActions {
     type: ItemActionType.FETCH_ITEMS_SUCCESS;
-    payload: any[]
+    payload: Items[]
 }
 interface FetchItemsErrorActions {
     type: ItemActionType.FETCH_ITEMS_ERROR;
     payload: string
 }
 
-interface SortItem {
+interface SortItemCount {
     type: ItemActionType.SORT_ITEM_UP | ItemActionType.SORT_ITEM_DOWN;
-    payload: any[]
+    payload: Items[]
 }
 
+interface SortItemName {
+    type: ItemActionType.SORT_ITEM_NAME;
+    payload: Items[]
+}
 interface SearchItem {
     type: ItemActionType.SEARCH_ITEM
     payload: string
@@ -68,5 +75,5 @@ interface FetchPriceErrorActions {
     payload: string
 }
 
-export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItem | SearchItem
+export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItemCount | SearchItem | SortItemName
 export type PriceAction = FetchPriceActions | FetchPriceSuccessActions | FetchPriceErrorActions

@@ -38,3 +38,9 @@ export const searchItem = (str: string) => {
         dispatch({type: ItemActionType.SEARCH_ITEM, payload: str.toLocaleLowerCase()})
     }
 }
+
+export const sortItemsName = (items: Items[]) => {
+    return (dispatch: Dispatch<ItemAction>) =>{
+        dispatch({type: ItemActionType.SORT_ITEM_NAME, payload: items.sort((a:Items,b:Items) => a.name.toLowerCase() < b.name.toLowerCase()? 1:-1)})
+    }
+}
