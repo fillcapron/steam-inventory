@@ -7,7 +7,7 @@
     margin: 8px 0 10px;
     line-height: 2.25em;
     &-name{
-        width: 90%;
+        width: 88%;
         padding-left: 10px;
         text-transform: uppercase;
         &:hover {
@@ -16,7 +16,7 @@
         }
     }
     &-count {
-        width: 10%;
+        width: 12%;
         text-align: center;
         text-transform: uppercase;
         border-left: 1px solid #404040;
@@ -29,13 +29,17 @@
         }
     }
 }
-
 .item-listing-header {
     color: #AFAFAF;
 }
-
-.sort-arrow {
-    display: inline-block;
+%sort-arrow {
+    display: none;
     font-size: 80%;
     margin-left: 4px;
+}
+.sort-arrow-name {
+    @extend %sort-arrow;
+}
+.sort-arrow-count {
+    @extend %sort-arrow;
 }

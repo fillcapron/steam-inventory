@@ -9,7 +9,6 @@ body {
     background: #1b2838;
     color: #8F98A0;
 }
-
 .content {
     width: 940px;
     margin: 0 auto;
@@ -17,9 +16,13 @@ body {
 a {
 text-decoration: none;
 }
+.active {
+    display: inline-block !important;
+}
 
 @import './_header';
 @import './_itemlist';
+@import './main';
 @import './_sidebar';
 @import './_paginations';
 @import './_item';

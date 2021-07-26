@@ -1,56 +1,39 @@
-import {useState} from "react"
-import { useDispatch } from "react-redux"
 import Item from './item'
 import {Items} from '../types/types'
 import { usedTypedSelector } from "../hooks/useTypedSelector"
 import usePagination from "../hooks/usePagination"
 import Pagination from "./Paginations"
-import { sortDOWN, sortItemsName, sortUP } from "../redux/store/action/itemsActions"
+import { useSort } from "../hooks/useSort"
+import { useRef } from 'react'
 
 
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
     const {searchValue} = usedTypedSelector(state => state.search)
+    const [iconArrow, sortItems] = useSort(items)
     const filtredItems = items.filter((item) =>item.name.toLowerCase().includes(searchValue))
     const [currentPage, currentItems, itemsPerPage, index, paginate, countItems] = usePagination(filtredItems)
     const {indexOfLastItem, indexOfFirstItem} = index
-    const [isSort, setSortItems] = useState(false)
-    const [iconArrow, setIconArrow] = useState([''])
+    const countRef = useRef<HTMLSpanElement>(null)
+    const nameRef = useRef<HTMLSpanElement>(null)
 
-    const dispatch = useDispatch()
-    
     if (loading) return <h1>Идет загрузка</h1>
     if (error) return <h1>{error}</h1>
     if(!items.length) return <p>Введите свой Steam ID</p>
 
-    const sortCount = () => {
-        if (!isSort) {
-            dispatch(sortUP(items))
-            setSortItems(true)
-            setIconArrow(['▲'])
-        } else {
-            dispatch(sortDOWN(items))
-            setSortItems(false)
-            setIconArrow(['▼'])
-        }
-   }
-
-   const sortName = () => {
-       dispatch(sortItemsName(items))
-   }
-   
     return(
         <>
         {
             currentItems.length?
             <div>
             <div className="item-listing-header">
-                <div className="item-listing-header-name" onClick={sortName}>
+                <div className="item-listing-header-name" onClick={() => sortItems('name', nameRef)}>
                     <span>название</span>
+                    <span className="sort-arrow-name" ref={nameRef}>{iconArrow}</span>
                     </div>
-                <div className="item-listing-header-count" onClick={sortCount}>
+                <div className="item-listing-header-count" onClick={() => sortItems('count', countRef)}>
                     <span>кол-во</span>
-                    <span className="sort-arrow">{iconArrow}</span>
+                    <span ref={countRef} className="sort-arrow-count">{iconArrow}</span>
                 </div>
             </div>
             {
@@ -64,7 +47,7 @@ const ItemList: React.FC = () => {
                 resultSearchNum={{indexOfLastItem, indexOfFirstItem}}
                 />
         </div>
-        : 'Нет пердметов в инвентаре'
+        : 'Нет предметов в инвентаре'
         }
         </>
     )

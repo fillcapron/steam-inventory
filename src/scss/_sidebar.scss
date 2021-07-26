@@ -1,6 +1,16 @@
-.item-search {
-    width: 265px;
-    margin-top: 8px;
-    padding: 12px 15px 15px 15px;
-    background: #00000066 none repeat scroll 0 0;
-}   
+.sidebar {
+    width: 32%;
+    &>div{
+        width: 290px;
+        margin-top: 8px;
+    }
+    &-content {
+        padding: 12px 15px 15px 15px;
+        background: #00000066 none repeat scroll 0 0;
+    }
+}
+// .item-search {
+//     width: 295px;
+//     margin-top: 8px;
+//     // background: #00000066 none repeat scroll 0 0;
+// }   

@@ -7,7 +7,7 @@ const Sidebar:React.FC = () => {
         dispatch(searchItem(e.target.value))
     }
     return (
-        <div>
+        <div className="sidebar-content">
             <span>Поиск предметов</span>
             <input placeholder="Поиск" onChange={(e) => search(e)}/>
         </div>
