@@ -10,36 +10,31 @@
         width: 88%;
         padding-left: 10px;
         text-transform: uppercase;
-        &:hover {
-            background-color: #324965;
-            cursor: pointer;
-        }
+        @extend %hover-sort;
     }
     &-count {
         width: 12%;
         text-align: center;
         text-transform: uppercase;
         border-left: 1px solid #404040;
-        &:hover {
-            background-color: #324965;
-            cursor: pointer;
-            .sort-arrow {
-                transform: rotate(180deg);
-            }
-        }
+        @extend %hover-sort;
     }
 }
 .item-listing-header {
     color: #AFAFAF;
 }
-%sort-arrow {
-    display: none;
+.sort-arrow {
+    display: inline-block !important;
     font-size: 80%;
     margin-left: 4px;
 }
-.sort-arrow-name {
-    @extend %sort-arrow;
+%hover-sort{
+    &:hover {
+        background-color: #324965;
+        cursor: pointer;
+        .sort-arrow {
+            transform: rotate(180deg);
+        }
+    }
 }
-.sort-arrow-count {
-    @extend %sort-arrow;
-}
+    

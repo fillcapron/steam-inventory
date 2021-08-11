@@ -1,8 +1,8 @@
 import { Items } from "../../types/types"
 
 export interface ItemState {
-    items: any[];
-    loading: boolean;
+    items: any[]
+    loading: boolean,
     error: string | null
 }
 export interface PriceItem {
@@ -28,7 +28,8 @@ export enum ItemActionType {
     SORT_ITEM_UP = 'SORT_UP',
     SORT_ITEM_DOWN = 'SORT_DOWN',
     SEARCH_ITEM = 'SEARCH_ITEM',
-    SORT_ITEM_NAME = 'SORT_NAME'
+    SORT_ITEM_NAME = 'SORT_NAME',
+    SORT_ITEM_NAME_REVERSE = 'SORT_NAME_REVERSE'
 }
 
 export enum PriceActionType {
@@ -58,6 +59,10 @@ interface SortItemName {
     type: ItemActionType.SORT_ITEM_NAME;
     payload: Items[]
 }
+interface SortItemNameReverse {
+    type: ItemActionType.SORT_ITEM_NAME_REVERSE;
+    payload: Items[]
+}
 interface SearchItem {
     type: ItemActionType.SEARCH_ITEM
     payload: string
@@ -75,5 +80,5 @@ interface FetchPriceErrorActions {
     payload: string
 }
 
-export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItemCount | SearchItem | SortItemName
+export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItemCount | SearchItem | SortItemName | SortItemNameReverse
 export type PriceAction = FetchPriceActions | FetchPriceSuccessActions | FetchPriceErrorActions

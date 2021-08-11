@@ -24,12 +24,12 @@ export const fetchItems = (state: string) => {
 
 export const sortUP = (items:Items[]) => {
     return (dispatch: Dispatch<ItemAction>) => {
-        dispatch({type: ItemActionType.SORT_ITEM_UP, payload: items.sort((a:Items,b:Items) => b.count - a.count)})
+        dispatch({type: ItemActionType.SORT_ITEM_UP, payload: [...items].sort((a:Items,b:Items) => b.count - a.count)})
     }
 }
 export const sortDOWN = (items:Items[]) => {
     return (dispatch: Dispatch<ItemAction>) => {
-        dispatch({type: ItemActionType.SORT_ITEM_DOWN, payload: items.sort((a:Items,b:Items) => a.count - b.count)})
+        dispatch({type: ItemActionType.SORT_ITEM_DOWN, payload: [...items].sort((a:Items,b:Items) => a.count - b.count)})
     }
 }
 
@@ -41,15 +41,11 @@ export const searchItem = (str: string) => {
 
 export const sortItemsName = (items: Items[]) => {
     return (dispatch: Dispatch<ItemAction>) =>{
-        // dispatch({type: ItemActionType.SORT_ITEM_NAME, payload: items.sort((a:Items,b:Items) => a.name.toLowerCase() < b.name.toLowerCase()? 1:-1)})
-        dispatch({type: ItemActionType.SORT_ITEM_NAME, payload: items.sort((a:Items,b:Items) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                return -1
-            }
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return 1
-            }
-            return 0
-        })})
+        dispatch({type: ItemActionType.SORT_ITEM_NAME, payload: [...items].sort((a:Items,b:Items) => a.name.localeCompare(b.name))})
+    }
+}
+export const sortItemsNameReverse = (items: Items[]) => {
+    return (dispatch: Dispatch<ItemAction>) =>{
+        dispatch({type: ItemActionType.SORT_ITEM_NAME_REVERSE, payload: [...items].reverse()})
     }
 }
