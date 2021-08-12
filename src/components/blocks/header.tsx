@@ -1,18 +1,18 @@
+import logo from '../../logo-steam.png'
 
 const Header: React.FC = () => {
     return(
-        <div className="header">
+        <nav className="navbar-header navbar-fixed-top">
             <div className="content">
                 <div className="logo">
-                    <span>
-                        <a href="/">
-                    <img src="https://store.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" alt=""  width="176" height="44"/>
-                </a>
-                    </span>
+                <img src={logo} height="50px" width="50px" alt=""/>
+                <span className="logo-text">STEAM-INVENTORY</span>
                 </div>
+                <i className="fab fa-steam-square"></i>
             </div>
-        </div>
+        </nav>
     )
+        
 }
 
 export default Header

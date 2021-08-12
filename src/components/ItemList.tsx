@@ -4,6 +4,7 @@ import { usedTypedSelector } from "../hooks/useTypedSelector"
 import usePagination from "../hooks/usePagination"
 import Pagination from "./Paginations"
 import ItemListHeader from './UI/ItemListHeader'
+import PanelInfo from './UI/panel'
 
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)
@@ -14,7 +15,7 @@ const ItemList: React.FC = () => {
 
     if (loading) return <h1>Идет загрузка</h1>
     if (error) return <h1>{error}</h1>
-    if(!items.length) return <p>Введите свой Steam ID</p>
+    if(!items.length) return <PanelInfo title="Введите свой STEAM ID">ПРОВЕРКА ПРОВЕРКА</PanelInfo>
 
     return(
         <>

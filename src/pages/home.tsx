@@ -13,7 +13,7 @@ const Home: React.FC = () => {
     }
     return(
         <div className="content">
-            <div className="row">
+            <div className="row mt-5">
                 <Input getInventory={getInventory}/>
                 <div className="main">
                     <ItemList/>
