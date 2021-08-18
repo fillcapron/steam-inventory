@@ -9,7 +9,7 @@ type TProps = {
 
 const Item:React.FC<TProps> = ({item}) => {
     return( 
-        <Link className="item-listing-row-link" to={`/item/${item.market_hash_name}/${item.classid}`}>
+        <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`}>
         <div className="item-listing-row">
             <img src={'https://community.akamai.steamstatic.com/economy/image/'+item.icon_url+'/62fx62f'} className="item-listing-img"  alt="..." />
         <div className="item-listing-name-block">

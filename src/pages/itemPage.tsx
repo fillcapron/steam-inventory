@@ -17,20 +17,29 @@ const ItemPage:React.FC = ({match}:any) => {
     useEffect(()=> {
         getPrice()
     }, [getPrice])
-
+    console.log(one_item)
     return( 
         <div className="content">
-            {
-                one_item ?
-                <div className="row">  
-                        <img src={'https://community.akamai.steamstatic.com/economy/image/'+ one_item.icon_url} className="item-listing-img"  alt="" />
-                        <h1>{one_item.name}</h1>
-                        <p>Количество: {one_item.count}</p>
-                        <p>Цена продажи: {priceItem.sellPrice? priceItem.sellPrice * one_item.count: 'Загрузка'}</p>
-                        <p>Цена покупки: {priceItem.buyPrice? priceItem.buyPrice * one_item.count: 'Загрузка'}</p>
-                    </div>
-                    : 'Загрузка'
-            }           
+            <div className="row">
+                        {
+                            one_item ?
+                            <div className="item-page"> 
+                                    <div className="item-page-left">
+                                        <div className="item-image">
+                                            <img src={'https://community.akamai.steamstatic.com/economy/image/'+ one_item.icon_url +'/360fx360f'} alt={one_item.name} />
+                                        </div>
+                                    </div>
+                                    <div className="item-page-right">
+                                        <div className="item-description">
+                                        <h1>{one_item.name}</h1>
+                                        <p>Количество: {one_item.count}</p>
+                                        <p>Цена продажи: {priceItem.sellPrice? priceItem.sellPrice * one_item.count: 'Загрузка'}</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            : 'Загрузка'
+                        }       
+            </div>
         </div>
     )
 }

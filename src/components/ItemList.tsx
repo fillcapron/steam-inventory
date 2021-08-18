@@ -4,7 +4,7 @@ import { usedTypedSelector } from "../hooks/useTypedSelector"
 import usePagination from "../hooks/usePagination"
 import Pagination from "./Paginations"
 import ItemListHeader from './UI/ItemListHeader'
-import PanelInfo from './UI/panel'
+import PanelInfo from './UI/InfoPanel'
 
 const ItemList: React.FC = () => {
     const {error, items, loading} = usedTypedSelector(state => state.item)

@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux"
 import { searchItem } from "../../redux/store/action/itemsActions"
-import PanelInfo from "../UI/panel"
 
 const Sidebar:React.FC = () => {
     const dispatch = useDispatch()
@@ -8,7 +7,12 @@ const Sidebar:React.FC = () => {
         dispatch(searchItem(e.target.value))
     }
     return (
-        <PanelInfo title="Поиск предметов"><input placeholder="AK-47" onChange={(e) => search(e)}/></PanelInfo>
+        <div className="sidebar-block">
+            <span className="sidebar-block-title">Поиск предметов</span>
+            <span>
+                <input placeholder="Поиск" className="itemSearchBox" onChange={(e) => search(e)}/>
+            </span>
+        </div>
     )
 }
 

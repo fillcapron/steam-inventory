@@ -7,7 +7,6 @@ import './scss/style.scss'
 
 function App() {
   return (
-    
     <BrowserRouter>
     <Header/>
       <Switch>

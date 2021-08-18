@@ -1,10 +1,26 @@
 .sidebar {
     width: 32%;
-    &>div{
-        width: 290px;
-        margin-top: 8px;
-    }
-    &-content {
+    margin-top: 8px;
+    &-block {
+        background: $dark;
         padding: 12px 15px 15px 15px;
+        &-title {
+            font-size: 15px;
+            color: #4582A5;
+        }
     }
+}
+
+.itemSearchBox {
+    margin-top: 5px;
+    width: 253px;
+    height: 25px;
+    border-radius: 0px;
+    color: #fff;
+    padding: 2px 0 2px 4px;
+    font-weight: 300;
+    background-color: #324965;
+    border-width: 1px;
+    border-style: 1px;
+    border-color: #182636 #45566A #45566A #182636;
 }

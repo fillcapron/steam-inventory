@@ -1,0 +1,16 @@
+.item-page {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5em;
+    background-color: $dark;
+    padding: 15px;
+}
+
+.item-image {
+    background: #071215;
+    box-shadow: 0 0 14px #030303 inset;
+    width: 360px;
+    height: 360px;
+    text-align: center;
+    margin-right: 15px;
+}

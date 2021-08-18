@@ -18,10 +18,8 @@ const Home: React.FC = () => {
                 <div className="main">
                     <ItemList/>
                 </div>
-                <div className="sidebar">
-                    <div className="item-search">
+                <div className="sidebar">         
                         <Sidebar/>
-                    </div>
                 </div>
             </div>
         </div>
