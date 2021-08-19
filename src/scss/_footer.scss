@@ -1,0 +1,8 @@
+.footer {
+    color: #8F98A0;
+    &>hr {
+        color: #0000001a;
+        border-top: 1px solid #0000001a;
+        opacity: 1;
+    }
+}

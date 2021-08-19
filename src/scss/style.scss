@@ -17,6 +17,11 @@ body {
 a {
 text-decoration: none;
 }
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+}
 
 @import './_header';
 @import './_itemlist';
@@ -26,3 +31,4 @@ text-decoration: none;
 @import './_item';
 @import './panel';
 @import './_item-page';
+@import './_footer';
