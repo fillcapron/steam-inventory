@@ -1,0 +1,14 @@
+.button {
+    &-group {
+        vertical-align: middle;
+    }
+    &-active {
+        padding: 0;
+        margin: 1px 6px;
+        box-shadow: 0 0 20px #198754;
+        border-radius: 15px;
+    }
+    &-img {
+        border-radius: 5px;
+    }
+}

@@ -1,29 +1,42 @@
-import { useEffect, useCallback } from "react"
-import { useDispatch } from "react-redux"
-import PanelInfo from "../components/UI/InfoPanel"
-import { usedTypedSelector } from "../hooks/useTypedSelector"
-import { fetchPrice } from "../redux/store/action/priceActons"
+import { useEffect } from "react";
+import { RouteComponentProps } from "react-router";
+import { useAction } from "../hooks/useActions";
+import { usedTypedSelector } from "../hooks/useTypedSelector";
 
-const ItemPage:React.FC = ({match}:any) => {
-    const {items} = usedTypedSelector(state => state.item)
-    const {priceItem, error, loading} = usedTypedSelector(state => state.price)
-    const dispatch = useDispatch()
+const ItemPage:React.FC<RouteComponentProps> = ({match}: any) => {
+    const {payload} = usedTypedSelector(state => state.item);
+    const {priceItem, error, loading} = usedTypedSelector(state => state.price);
+    const {fetchPrice} = useAction();
 
-    const one_item = items.find(elem => elem.name === match.params.id)
-    
-    const getPrice = useCallback(()=>{
-        dispatch(fetchPrice(one_item?.name, 440))
-    }, [dispatch, one_item])
+    const one_item = payload?.items.find(elem => elem.name === match.params.id)!;
+
+    // const getPrice = useCallback(()=>{
+    //     fetchPrice(one_item?.name, 440)
+    // }, [])
+
+    if(loading) <h1>Загрузка</h1>
+    if(error) <h1>Ошибка</h1>
     
     useEffect(()=> {
-        getPrice()
-    }, [getPrice])
-    if(error) return <PanelInfo title="Ошибка">Возникла ошибка при загрузке. Перейти на главную</PanelInfo>
-    if(loading) return <PanelInfo title="Загрузка">Загрузка</PanelInfo>
+        fetchPrice(one_item?.market_hash_name, 440)
+    }, [fetchPrice, one_item?.market_hash_name])
+
     return( 
         <div className="content">
             {
                 one_item ?
+                // <div className="item-page">
+                //     <div className="item">
+                //         <div className="item-img">
+                //         <img src={'https://community.akamai.steamstatic.com/economy/image/'+ one_item.icon_url +'/360fx360f'} alt={one_item.name} />
+                //         </div>
+                //         <div className="item-info">
+                //             <span>{one_item.name}</span>
+                //             <span>Rarity:{one_item.type.localized_tag_name}</span>
+                //             <span>Count:{one_item.count}</span>
+                //         </div>
+                //     </div>
+                // </div>
                 <div className="item-page"> 
                         <div className="item-page-left">
                             <div className="item-image">
@@ -34,7 +47,7 @@ const ItemPage:React.FC = ({match}:any) => {
                             <div className="item-description">
                             <h1>{one_item.name}</h1>
                             <p>Количество: {one_item.count}</p>
-                            <p>Цена продажи: {priceItem.sellPrice? priceItem.sellPrice * one_item.count: 'Загрузка'}</p>
+                            <p>Цена продажи: {priceItem?.buyPrice}</p>
                             </div>
                         </div>
                 </div>
@@ -44,4 +57,4 @@ const ItemPage:React.FC = ({match}:any) => {
     )
 }
 
-export default ItemPage
+export default ItemPage;

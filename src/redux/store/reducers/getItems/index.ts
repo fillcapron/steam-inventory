@@ -1,0 +1,33 @@
+import { ItemActionType, ItemAction } from '../../../types/types'
+import { ItemState } from './types'
+
+const initialState: ItemState = {
+    payload: {
+        total: '',
+        items: []
+    },
+    loading: false,
+    error: null,
+    isFetching: false
+}
+
+export const ItemReducer = (state = initialState, action: ItemAction): ItemState => {
+    switch (action.type) {
+        case ItemActionType.FETCH_ITEMS:
+            return { ...state, loading: true, error: null, isFetching: true }
+        case ItemActionType.FETCH_ITEMS_SUCCESS:
+            return { ...state, loading: false, error: null, payload: action.payload }
+        case ItemActionType.FETCH_ITEMS_ERROR:
+            return { ...state, loading: false, error: action.payload }
+        case ItemActionType.SORT_ITEM_UP:
+            return { ...state, loading: false, error: null, payload: action.payload }
+        case ItemActionType.SORT_ITEM_DOWN:
+            return { ...state, loading: false, error: null, payload: action.payload }
+        case ItemActionType.SORT_ITEM_NAME:
+            return { ...state, loading: false, error: null, payload: action.payload }
+        case ItemActionType.SORT_ITEM_NAME_REVERSE:
+            return { ...state, loading: false, error: null, payload: action.payload }
+        default:
+            return state
+    }
+}

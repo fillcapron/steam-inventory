@@ -7,9 +7,16 @@
     margin: 8px 0 10px;
     line-height: 2.25em;
     &-name{
-        width: 88%;
+        width: 58%;
         padding-left: 10px;
         text-transform: uppercase;
+        @extend %hover-sort;
+    }
+    &-rarity {
+        width: 30%;
+        text-transform: uppercase;
+        text-align: center;
+        border-left: 1px solid #404040;
         @extend %hover-sort;
     }
     &-count {

@@ -1,13 +1,15 @@
-import {combineReducers} from 'redux'
-import { searchItem } from './filter'
-import { itemPrice } from './itemPriceReducer'
-import { itemReducer } from './itemReducer'
+import { combineReducers } from 'redux'
+import { searchItem } from './searchItems'
+import { PriceReducer } from './getPrice'
+import { ItemReducer } from './getItems'
+import { ProfileReducer } from './getProfile'
 
 export const rootReducers = combineReducers(
     {
-        item: itemReducer,
-        price: itemPrice,
-        search: searchItem 
+        item: ItemReducer,
+        price: PriceReducer,
+        search: searchItem,
+        user: ProfileReducer
     }
 )
 

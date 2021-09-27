@@ -1,21 +1,23 @@
-import { useDispatch } from "react-redux"
-import { usedTypedSelector } from "../../hooks/useTypedSelector"
-import { searchItem } from "../../redux/store/action/itemsActions"
+import React from "react";
+import { useAction } from "../../hooks/useActions";
+import { usedTypedSelector } from "../../hooks/useTypedSelector";
 
-const Sidebar:React.FC = () => {
-    const dispatch = useDispatch()
-    const {searchValue} = usedTypedSelector(state => state.search)
-    const search = (e:any) => {
-        dispatch(searchItem(e.target.value))
+const Sidebar: React.FC = () => {
+    const { searchItem } = useAction();
+    const { searchValue } = usedTypedSelector(state => state.search);
+
+    const search = (e: React.SyntheticEvent<EventTarget>) => {
+        searchItem((e.target as HTMLInputElement).value)
     }
+
     return (
         <div className="sidebar-block">
             <span className="sidebar-block-title">Поиск предметов</span>
             <span>
-                <input placeholder="Поиск" value={searchValue?searchValue:''}className="itemSearchBox" onChange={(e) => search(e)}/>
+                <input placeholder="Поиск" value={searchValue ? searchValue : ''} className="itemSearchBox" onChange={(e) => search(e)} />
             </span>
         </div>
     )
 }
 
-export default Sidebar
+export default React.memo(Sidebar);

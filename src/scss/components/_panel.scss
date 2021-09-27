@@ -1,5 +1,6 @@
 .panel {
-    margin: 8px 0 10px;
+    margin: 0 auto;
+    max-width: 800px;
     &-info {
         box-shadow: 0 0 1px #000;
         background: #5485b733;
@@ -13,8 +14,24 @@
         margin-bottom: 0;
     }
     &-body {
+        display: flex;
+        align-items: center;
         background: #00000033;
         color: #8f98a0;
         padding: 15px;
+    }
+}
+
+.panel-mini {
+    width: 800px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    &-info {
+        border: 1px solid #005c99;
+    }
+    &-danger {
+        border: 1px solid red;
     }
 }

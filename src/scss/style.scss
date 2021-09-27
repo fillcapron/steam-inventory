@@ -1,7 +1,8 @@
-@import './bootstrap.min.css';
+@import './libs/bootstrap.min.css';
+@import './variables';
 
-$black: #000000;
-$dark: #00000066;
+
+@import './components/all';
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -10,6 +11,10 @@ body {
     background: #1b2838;
     color: #8F98A0;
 }
+#root {
+    min-height: 100%;
+    padding-top: 48px;
+}
 .content {
     width: 940px;
     margin: 0 auto;
@@ -17,18 +22,19 @@ body {
 a {
 text-decoration: none;
 }
+p {
+    margin: 0;
+}
 hr {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 0;
 }
-
-@import './_header';
-@import './_itemlist';
-@import './main';
-@import './_sidebar';
-@import './_paginations';
-@import './_item';
-@import './panel';
-@import './_item-page';
-@import './_footer';
+button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline:none;
+}

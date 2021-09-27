@@ -1,11 +1,18 @@
 .item-page {
+    background-color: $dark;
+}
+.item {
     display: flex;
     flex-direction: row;
-    margin-top: 5em;
-    background-color: $dark;
-    padding: 15px;
+    flex-wrap: wrap;
+    &-img {
+        flex-grow: 1;
+    }
+    &-info {
+        display: flex;
+        flex-direction: column;
+    }
 }
-
 .item-image {
     background: #071215;
     box-shadow: 0 0 14px #030303 inset;
@@ -14,3 +21,4 @@
     text-align: center;
     margin-right: 15px;
 }
+

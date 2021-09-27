@@ -1,26 +1,28 @@
-import { useState } from "react"
-import { Items } from "../types/types"
+import { useState } from "react";
+import { Items } from "../types/types";
 
 
-const usePagination = (items:Items[]):any[] => {
-    const [currentPage, setCurrentPage] = useState(1)
-    const [itemsPerPage] = useState(10)
+const usePagination = (items: Items[]): any[] => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(10);
 
-    const indexOfLastItem = currentPage * itemsPerPage
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    let currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    let currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
     if (!currentItems.length && items.length){
-        setCurrentPage(1)
-        currentItems = items
+        setCurrentPage(1);
+        currentItems = items;
     }
-    const countItems = items.length
+    
+    const countItems = items.length;
 
     const indexItem = {
         indexOfLastItem: indexOfLastItem ,
         indexOfFirstItem: indexOfFirstItem + 1
     }
 
-    const paginate = (pageNumber:number) => setCurrentPage(pageNumber)
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return [
             currentPage,
@@ -32,4 +34,4 @@ const usePagination = (items:Items[]):any[] => {
     ]
 }
 
-export default usePagination
+export default usePagination;
