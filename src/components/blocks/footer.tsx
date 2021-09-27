@@ -1,8 +1,8 @@
 
 const Footer: React.FC = () => {
     return(
-        <div className="content">
-            <div className="footer">
+        <div className="footer">
+            <div className="content">
                 <hr/>
                 <span>© Network 2021</span>
             </div>

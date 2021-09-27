@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Items } from '../types/types';
 
 type ItemsProps = {
-    item: Items
+    item: Items,
 }
 
 const Item: React.FC<ItemsProps> = ({ item }) => {
 
     return (
         <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`}>
-            <div className="item-listing-row" onMouseEnter={()=> console.log('mouse')}>
+            <div className="item-listing-row" >
                 <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} className="item-listing-img" alt="..." />
                 <div className="item-listing-name-block">
                     <span className="item-listing-name">{item.name.length > 22 ? item.name.slice(0, 22) + '...' : item.name}</span>

@@ -6,7 +6,7 @@ export const ProfileActions = {
         return async (dispatch: Dispatch<ProfileAction>) => {
             try {
                 dispatch({ type: ProfileActionType.FETCH_PROFILE })
-                const response = await fetch(`http://127.0.0.1:5000/profile?steamid=${steamid}`)
+                const response = await fetch(`https://steam-inventory-test.herokuapp.com/profile?steamid=${steamid}`)
                 const data = await response.json()
                 if (data.error) {
                     dispatch({ type: ProfileActionType.FETCH_PROFILE_SUCCESS, payload: data.error })
