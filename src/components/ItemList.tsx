@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Item from './item';
 import { Items } from '../types/types';
 import { usedTypedSelector } from "../hooks/useTypedSelector";
