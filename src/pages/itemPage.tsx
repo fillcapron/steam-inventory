@@ -8,11 +8,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
     const { priceItem, error, loading } = usedTypedSelector(state => state.price);
     const { fetchPrice } = useAction();
 
-    const one_item = payload?.items.find(elem => elem.name === match.params.id)!;
-
-    // const getPrice = useCallback(()=>{
-    //     fetchPrice(one_item?.name, 440)
-    // }, [])
+    const one_item = payload.items.find(elem => elem.name === match.params.id)!;
 
     if (loading) <h1>Загрузка</h1>
     if (error) <h1>Ошибка</h1>
@@ -25,18 +21,6 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
         <div className="content">
             {
                 one_item ?
-                    // <div className="item-page">
-                    //     <div className="item">
-                    //         <div className="item-img">
-                    //         <img src={'https://community.akamai.steamstatic.com/economy/image/'+ one_item.icon_url +'/360fx360f'} alt={one_item.name} />
-                    //         </div>
-                    //         <div className="item-info">
-                    //             <span>{one_item.name}</span>
-                    //             <span>Rarity:{one_item.type.localized_tag_name}</span>
-                    //             <span>Count:{one_item.count}</span>
-                    //         </div>
-                    //     </div>
-                    // </div>
                     <div className="item-page">
                         <div className="item-page-left">
                             <div className="item-image">
