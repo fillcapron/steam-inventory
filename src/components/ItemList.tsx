@@ -13,7 +13,6 @@ const ItemList: React.FC = () => {
     const filtredItems = items?.filter((item) => item.name.toLowerCase().includes(searchValue)) || [];
     const [currentPage, currentItems, itemsPerPage, index, paginate, countItems] = usePagination(filtredItems);
     const { indexOfLastItem, indexOfFirstItem } = index;
-
     if (loading) return <h1>Идет загрузка</h1>
     if (error) return <h1>{error}</h1>
 

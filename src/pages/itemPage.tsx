@@ -18,7 +18,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
     if (error) <h1>Ошибка</h1>
 
     useEffect(() => {
-        fetchPrice(one_item?.market_hash_name, 440)
+        fetchPrice(one_item?.market_hash_name, localStorage.getItem('app') || null, 5)
     }, [fetchPrice, one_item?.market_hash_name])
 
     return (
@@ -47,7 +47,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                             <div className="item-description">
                                 <h1>{one_item.name}</h1>
                                 <p>Количество: {one_item.count}</p>
-                                <p>Цена продажи: {priceItem?.buyPrice}</p>
+                                <p>Цена продажи: {priceItem?.lowest_price}</p>
                             </div>
                         </div>
                     </div>

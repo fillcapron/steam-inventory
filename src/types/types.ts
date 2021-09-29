@@ -7,7 +7,7 @@ export interface Items {
     market_hash_name: string,
     market_name: string,
     name: string,
-    type: ITypeItem
+    type: ITypeItem,
 }
 
 interface ITypeItem {

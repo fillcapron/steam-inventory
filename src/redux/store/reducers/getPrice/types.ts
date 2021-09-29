@@ -1,6 +1,8 @@
 export interface IPrice {
-    buyPrice: number;
-    sellPrice: number;
+    success: boolean,
+    lowest_price: string,
+    volume: number,
+    median_price: number
 }
 
 export interface PriceState {

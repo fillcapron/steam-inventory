@@ -3,7 +3,6 @@ import { ItemState } from './types'
 
 const initialState: ItemState = {
     payload: {
-        total: '',
         items: []
     },
     loading: false,
