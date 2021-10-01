@@ -10,5 +10,8 @@
         border: 1px solid #0c0c0c;
         align-items: center;
         margin: 6px;
+        &:hover {
+            background: #161920;
+        }
     }
 }
