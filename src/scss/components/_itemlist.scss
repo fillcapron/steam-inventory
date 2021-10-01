@@ -1,57 +1,25 @@
-.item-listing-header {
+.list {
+  &-header {
     display: flex;
-    flex-wrap: wrap;
-    font-size: 75.7%;
     background: #00000033;
-    height: 2.25em;
+    align-items: center;
+    justify-content: space-between;
     margin: 8px 0 10px;
-    line-height: 2.25em;
-    &-name{
-        width: 58%;
-        padding-left: 10px;
-        text-transform: uppercase;
-        @extend %hover-sort;
+  }
+  &-mode {
+    font-size: 1.5rem;
+    padding-right: 10px;
+    &-table {
+      @extend %hover-mode;
     }
-    &-rarity {
-        width: 30%;
-        text-transform: uppercase;
-        text-align: center;
-        border-left: 1px solid #404040;
-        @extend %hover-sort;
+    &-grid {
+      @extend %hover-mode;
     }
-    &-count {
-        width: 12%;
-        text-align: center;
-        text-transform: uppercase;
-        border-left: 1px solid #404040;
-        @extend %hover-sort;
-    }
+  }
 }
-.item-listing-header {
-    color: #AFAFAF;
-}
-.sort-arrow {
-    display: inline-block !important;
-    font-size: 80%;
-    margin-left: 4px;
-}
-%hover-sort{
-    &:hover {
-        background-color: #324965;
-        cursor: pointer;
-        .sort-arrow {
-            transform: rotate(180deg);
-        }
-    }
-}
-    
-#hover-js {
-    background: #e3eaef;
-    width: 306px;
-    color: #30455a;
-    border: 1px solid #323f53;
-    overflow: hidden;
-    border-radius: 6px;
-    z-index: 1000000;
-    position: absolute;
+%hover-mode {
+  &:hover {
+    color: gray;
+    cursor: pointer;
+  }
 }

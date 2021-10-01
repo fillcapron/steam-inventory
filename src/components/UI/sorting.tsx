@@ -6,7 +6,7 @@ interface IHeaderProps {
     items: Items[]
 }
 
-const ItemListHeader: React.FC<IHeaderProps> = ({ items }) => {
+const Sorting: React.FC<IHeaderProps> = ({ items }) => {
     const { sortUP, sortDOWN, sortItemsName, sortItemsNameReverse } = useAction();
     const [isSortName, setSortItemsName] = useState({ isSort: false, iconArrow: [''] });
     const [isSortCount, setSortItemsCount] = useState({ isSort: false, iconArrow: [''] });
@@ -32,16 +32,19 @@ const ItemListHeader: React.FC<IHeaderProps> = ({ items }) => {
     }
 
     return (
-        <div className="item-listing-header">
-            <div className="item-listing-header-name" onClick={sortName}>
+        <div className="sorting">
+            <div className="sorting-text">
+                <span>сортировать по:</span>
+            </div>
+            <div className="sorting-name" onClick={sortName}>
                 <span>название</span>
                 <span className="sort-arrow">{isSortName.iconArrow}</span>
             </div>
-            <div className="item-listing-header-rarity">
-                <span>Редкость</span>
-                <span className="sort-arrow">{isSortName.iconArrow}</span>
+            <div className="sorting-rarity">
+                <span>редкость</span>
+                <span className="sort-arrow"></span>
             </div>
-            <div className="item-listing-header-count" onClick={sortCount}>
+            <div className="sorting-count" onClick={sortCount}>
                 <span>кол-во</span>
                 <span className="sort-arrow">{isSortCount.iconArrow}</span>
             </div>
@@ -49,4 +52,4 @@ const ItemListHeader: React.FC<IHeaderProps> = ({ items }) => {
     )
 }
 
-export default ItemListHeader;
+export default Sorting;

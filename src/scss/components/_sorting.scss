@@ -1,0 +1,59 @@
+.sorting {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 75.7%;
+    height: 2.25em;
+    line-height: 2.25em;
+    & span:not(:last-child) {
+        border-bottom: 1px gray dashed;
+    }
+    &-text {
+        padding-left: 10px;
+        text-transform: uppercase;
+    }
+    &-name{
+        padding-left: 10px;
+        text-transform: uppercase;
+        @extend %hover-sort;
+    }
+    &-rarity {
+        padding-left: 10px;
+        text-transform: uppercase;
+        text-align: center;
+        @extend %hover-sort;
+    }
+    &-count {
+        padding-left: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        @extend %hover-sort;
+    }
+}
+.item-listing-header {
+    color: #AFAFAF;
+}
+.sort-arrow {
+    display: inline-block !important;
+    font-size: 80%;
+    margin-left: 4px;
+}
+%hover-sort{
+    &:hover {
+        color: gray;
+        cursor: pointer;
+        .sort-arrow {
+            transform: rotate(180deg);
+        }
+    }
+}
+    
+#hover-js {
+    background: #e3eaef;
+    width: 306px;
+    color: #30455a;
+    border: 1px solid #323f53;
+    overflow: hidden;
+    border-radius: 6px;
+    z-index: 1000000;
+    position: absolute;
+}
