@@ -1,36 +1,40 @@
 import { useState } from "react";
 import { Items } from "../types/types";
 
+interface IndexItem {
+    indexOfLastItem: number,
+    indexOfFirstItem: number
+}
 
-const usePagination = (items: Items[], itemsPerPage:number): any[] => {
+const usePagination = (items: Items[], itemsPerPage: number): [number, Items[], number, IndexItem, Function, number] => {
     const [currentPage, setCurrentPage] = useState(1);
     // const [itemsPerPage] = useState(10);
 
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    let currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+    const indexOfLastItem: number = currentPage * itemsPerPage;
+    const indexOfFirstItem: number = indexOfLastItem - itemsPerPage;
+    let currentItems: Items[] = items.slice(indexOfFirstItem, indexOfLastItem);
 
-    if (!currentItems.length && items.length){
+    if (!currentItems.length && items.length) {
         setCurrentPage(1);
         currentItems = items;
     }
-    
-    const countItems = items.length;
+
+    const countItems: number = items.length;
 
     const indexItem = {
-        indexOfLastItem: indexOfLastItem ,
+        indexOfLastItem: indexOfLastItem,
         indexOfFirstItem: indexOfFirstItem + 1
     }
 
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+    const paginate: Function = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return [
-            currentPage,
-            currentItems,
-            itemsPerPage,
-            indexItem,
-            paginate,
-            countItems 
+        currentPage,
+        currentItems,
+        itemsPerPage,
+        indexItem,
+        paginate,
+        countItems
     ]
 }
 
