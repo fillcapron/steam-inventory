@@ -5,7 +5,6 @@ import TakeInventory from "../components/blocks/take-inventory";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import InputFetch from "../components/UI/input/inputFetch";
 import ButtonGames from "../components/UI/button/buttonsGames";
-import Profile from "../components/profile";
 
 const Home: React.FC = () => {
     const { isFetching } = usedTypedSelector(state => state.item);
@@ -23,7 +22,6 @@ const Home: React.FC = () => {
                                 <InputFetch />
                                 <ButtonGames />
                             </div>
-                            <Profile />
                         </div>
                         <div className="main">
                             <ItemList />

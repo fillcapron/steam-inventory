@@ -15,8 +15,8 @@ const Profile: React.FC = () => {
 
     return (
         <div className="profile">
-            <h1>{payload.name}</h1>
-            <img src={payload.avatar} alt={payload.name} />
+            <span>{payload.name}</span>
+            <img style={{border: '2px solid' + (payload.status ? '#57cbde' : '#898989')}} src={payload.avatar} alt={payload.name} />
         </div>
     )
 }

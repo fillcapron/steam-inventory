@@ -4,6 +4,7 @@ import ItemListGrid from './ItemListGrid';
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import Sorting from './UI/sorting';
 import { MdViewHeadline, MdViewModule } from 'react-icons/md';
+import Panel from './UI/panel/panel';
 
 const ItemList: React.FC = () => {
     const { error, payload, loading } = usedTypedSelector(state => state.item);
@@ -36,7 +37,7 @@ const ItemList: React.FC = () => {
                         }
 
                     </div>
-                    : 'Нет предметов в инвентаре'
+                    : <Panel type={'info mt-2'}>Нет предметов в инвентаре</Panel>
             }
         </>
     )

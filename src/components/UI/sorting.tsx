@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useAction } from "../../hooks/useActions";
 import { Items } from "../../types/types";
@@ -52,4 +53,4 @@ const Sorting: React.FC<IHeaderProps> = ({ items }) => {
     )
 }
 
-export default Sorting;
+export default React.memo(Sorting);

@@ -3,9 +3,9 @@ interface PanelProps {
     children?: any
 }
 
-const Panel: React.FC<PanelProps> = ({type, children}) => {
+const Panel: React.FC<PanelProps> = ({ type, children }) => {
     return (
-        <div className={"panel-mini panel-mini-"+type}>
+        <div className={"panel-mini panel-mini-" + type}>
             <p>
                 {children}
             </p>

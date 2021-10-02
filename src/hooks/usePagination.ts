@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Items } from "../types/types";
 
-interface IndexItem {
+export interface IndexItem {
     indexOfLastItem: number,
     indexOfFirstItem: number
 }
 
 const usePagination = (items: Items[], itemsPerPage: number): [number, Items[], number, IndexItem, Function, number] => {
     const [currentPage, setCurrentPage] = useState(1);
-    // const [itemsPerPage] = useState(10);
 
     const indexOfLastItem: number = currentPage * itemsPerPage;
     const indexOfFirstItem: number = indexOfLastItem - itemsPerPage;
