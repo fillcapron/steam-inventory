@@ -11,7 +11,7 @@ const ItemList: React.FC = () => {
     const { items } = payload;
     const { searchValue } = usedTypedSelector(state => state.search);
     const filtredItems = items?.filter((item) => item.name.toLowerCase().includes(searchValue)) || [];
-    
+
 
     if (loading) return <h1>Идет загрузка</h1>
     if (error) return <h1>{error}</h1>
@@ -19,22 +19,22 @@ const ItemList: React.FC = () => {
     return (
         <>
             {
-                items.length ?
+                items ?
                     <div>
                         <div className="list-header">
                             <Sorting items={items} />
                             <div className="list-mode">
                                 <MdViewHeadline className="list-mode-table" onClick={() => setMode('table')} />
-                                <MdViewModule className="list-mode-grid" onClick={() => setMode('grid')}/>
+                                <MdViewModule className="list-mode-grid" onClick={() => setMode('grid')} />
                             </div>
                         </div>
                         {
                             mode === 'table' ?
-                            <ItemListTable items={filtredItems}/> 
-                            :
-                            <ItemListGrid items={filtredItems}/>
+                                <ItemListTable items={filtredItems} />
+                                :
+                                <ItemListGrid items={filtredItems} />
                         }
-                        
+
                     </div>
                     : 'Нет предметов в инвентаре'
             }
