@@ -8,7 +8,9 @@ const ButtonGames: React.FC = () => {
     useEffect(() => {
         localStorage.setItem('app', app || '');
     }, [app]);
+
     console.log('Button')
+    
     const handlerApp = (e: React.SyntheticEvent<EventTarget>) => setApp((e.target as HTMLInputElement).value || (e.target as HTMLInputElement).dataset.g);
 
     const GameButton = games.map((gameName) => {
