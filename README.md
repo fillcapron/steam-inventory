@@ -1,7 +1,14 @@
-# Getting Started with Create React App
+Интернет приложение для проверки инветаря пользователя **Steam**:
+-Общее кол-во предметов
+-Подробная информация о предмете + цена на площадках
+-Сортировка предметов по кол-ву, названию, редкости
+-Поиск предметов
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Steam Inventory checks app
-
+**Stack:**
++ TypeScript
++ ReactJS + hooks
++ React Router
++ Redux
++ Redux thunk
++ SCSS
 
