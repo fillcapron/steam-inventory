@@ -1,4 +1,4 @@
-import InputFetch from "../UI/Input/inputFetch";
+import InputFetch from "../UI/Input/InputFetch";
 import ButtonGames from "../UI/Button/buttonsGames";
 import PanelInfo from "../UI/Panels/InfoPanel";
 
