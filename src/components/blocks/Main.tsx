@@ -1,5 +1,5 @@
 import InputFetch from "../UI/Input/InputFetch";
-import ButtonGames from "../UI/Button/ButtonGames";
+import ButtonGames from "../UI/Button/ButtonGAmes";
 import PanelInfo from "../UI/Panels/InfoPanel";
 
 const TakeInventory: React.FC = () => {
