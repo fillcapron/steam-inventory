@@ -5,6 +5,7 @@ import { usedTypedSelector } from "../hooks/useTypedSelector";
 import Sorting from './Sorting';
 import { MdViewHeadline, MdViewModule } from 'react-icons/md';
 import Panel from './UI/Panels/panel';
+import SkeletonItems from './UI/Loader/LoaderItems';
 
 const ItemList: React.FC = () => {
     const { error, payload, loading } = usedTypedSelector(state => state.item);
@@ -14,7 +15,7 @@ const ItemList: React.FC = () => {
     const filtredItems = items?.filter((item) => item.name.toLowerCase().includes(searchValue)) || [];
 
 
-    if (loading) return <h1>Идет загрузка</h1>
+    if (loading) return <SkeletonItems/>
     if (error) return <h1>{error}</h1>
 
     return (

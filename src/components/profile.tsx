@@ -14,10 +14,16 @@ const Profile: React.FC = () => {
     }, [localId, fetchProfile]);
 
     return (
-        <div className="profile">
-            <span>{payload.name}</span>
-            <img style={{border: '2px solid' + (payload.status ? '#57cbde' : '#898989')}} src={payload.avatar} alt={payload.name} />
-        </div>
+        <>
+            {
+                payload.avatar ?
+                    <div className="profile">
+                        <span>{payload.name}</span>
+                        <img style={{ border: '2px solid' + (payload.status ? '#57cbde' : '#898989') }} src={payload.avatar} alt={payload.name} />
+                    </div>
+                    : []
+            }
+        </>
     )
 }
 export default React.memo(Profile);
