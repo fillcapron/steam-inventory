@@ -1,5 +1,5 @@
 import { usedTypedSelector } from '../../hooks/useTypedSelector';
-import Profile from '../profile'
+import Profile from '../Profile'
 import logo from '../../logo-steam.png';
 
 const Header: React.FC = () => {

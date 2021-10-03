@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Footer from './components/blocks/footer';
-import Header from './components/blocks/header';
+import Footer from './components/blocks/Footer';
+import Header from './components/blocks/Header';
 import Home from './pages/home'
 import ItemPage from './pages/itemPage'
 import './scss/style.scss'

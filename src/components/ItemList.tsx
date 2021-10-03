@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ItemListTable from './itemListTable';
+import ItemListTable from './ItemListTable';
 import ItemListGrid from './ItemListGrid';
 import { usedTypedSelector } from "../hooks/useTypedSelector";
-import Sorting from './UI/sorting';
+import Sorting from './Sorting';
 import { MdViewHeadline, MdViewModule } from 'react-icons/md';
-import Panel from './UI/panel/panel';
+import Panel from './UI/Panels/panel';
 
 const ItemList: React.FC = () => {
     const { error, payload, loading } = usedTypedSelector(state => state.item);

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { useAction } from "../../hooks/useActions";
-import { Items } from "../../types/types";
+import { useAction } from "../hooks/useActions";
+import { Items } from "../types/types";
 
 interface IHeaderProps {
     items: Items[]

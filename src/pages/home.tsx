@@ -1,10 +1,10 @@
 import React from "react";
 import ItemList from '../components/ItemList';
-import Sidebar from "../components/blocks/sidebar";
-import TakeInventory from "../components/blocks/take-inventory";
+import Sidebar from "../components/blocks/Sidebar";
+import TakeInventory from "../components/blocks/Main";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
-import InputFetch from "../components/UI/input/inputFetch";
-import ButtonGames from "../components/UI/button/buttonsGames";
+import InputFetch from "../components/UI/Input/inputFetch";
+import ButtonGames from "../components/UI/Button/buttonsGames";
 
 const Home: React.FC = () => {
     const { isFetching } = usedTypedSelector(state => state.item);
