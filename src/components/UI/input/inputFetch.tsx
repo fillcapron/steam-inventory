@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useFetchItems } from '../../../hooks/useFetchItems'
-import Panel from "../Panels/panel";
+import Panel from "../Panels/Panel";
 
 
 const InputFetch: React.FC = () => {

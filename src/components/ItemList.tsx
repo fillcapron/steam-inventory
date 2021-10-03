@@ -4,7 +4,7 @@ import ItemListGrid from './ItemListGrid';
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import Sorting from './Sorting';
 import { MdViewHeadline, MdViewModule } from 'react-icons/md';
-import Panel from './UI/Panels/panel';
+import Panel from './UI/Panels/Panel';
 import SkeletonItems from './UI/Loader/LoaderItems';
 
 const ItemList: React.FC = () => {
