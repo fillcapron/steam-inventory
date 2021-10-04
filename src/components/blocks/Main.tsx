@@ -1,5 +1,5 @@
 import InputFetch from "../UI/Input/InputFetch";
-import ButtonGames from "../UI/Button/ButtonGAmes";
+import ButtonGames from "../UI/Button/ButtonGames";
 import PanelInfo from "../UI/Panels/InfoPanel";
 
 const TakeInventory: React.FC = () => {
@@ -11,7 +11,7 @@ const TakeInventory: React.FC = () => {
                 <h3 className="header-subtitle">Calculate the value of your Steam Inventory</h3>
                 <InputFetch />
                 <PanelInfo>
-                    <span>Choise the game:</span>
+                    <span>Выберите игру:</span>
                     <div className="button-group" >
                         <ButtonGames />
                     </div>

@@ -23,6 +23,8 @@ const Pagination: React.FC<IPagination> = ({ currentPage, itemsPerPage, countIte
         if (currentPage !== pageNumbers[pageNumbers.length - 1]) paginate(currentPage + 1)
     }
 
+    if (!countItems) return <p>Сбросьте поиск</p>
+
     return (
         <div className="paging">
             <div className="paging-result">
@@ -31,16 +33,14 @@ const Pagination: React.FC<IPagination> = ({ currentPage, itemsPerPage, countIte
             <nav>
                 <ul className="paging-controls">
                     <span className={currentPage !== 1 ? 'pagebtn' : 'pagebtn disabled'} onClick={prevPage}>&#60;</span>
-                    {pageNumbers.map(num => {
-
-                        return (
-                            <span key={num} className={currentPage === num ? 'paging-link active' : 'paging-link'}>
-                                <span onClick={() => paginate(num)}>
-                                    {num}
-                                </span>
+                    {pageNumbers.map(num => (
+                        <span key={num} className={currentPage === num ? 'paging-link active' : 'paging-link'}>
+                            <span onClick={() => paginate(num)}>
+                                {num}
                             </span>
-                        )
-                    })}
+                        </span>
+                    )
+                    )}
                     <span className={currentPage !== pageNumbers[pageNumbers.length - 1] ? 'pagebtn' : 'pagebtn disabled'} onClick={nextPage}>&#62;</span>
                 </ul>
             </nav>

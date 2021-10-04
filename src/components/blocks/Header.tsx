@@ -1,5 +1,5 @@
 import { usedTypedSelector } from '../../hooks/useTypedSelector';
-import Profile from '../Profile'
+import Profile from '../Profile';
 import logo from '../../logo-steam.png';
 
 const Header: React.FC = () => {
@@ -23,3 +23,5 @@ const Header: React.FC = () => {
 }
 
 export default Header
+
+// MdArrowDropDown

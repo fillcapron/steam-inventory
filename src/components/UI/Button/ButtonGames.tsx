@@ -3,14 +3,14 @@ import { imgGame, GameAppId } from "./types";
 
 const ButtonGames: React.FC = () => {
     const [app, setApp] = useState<string | undefined>(localStorage.getItem('app') || '');
-    const games = ['STEAM', 'TF2', 'CSGO', 'DOTA2', 'ARTIFACT', 'H1Z1', 'RUST', 'UNTURNED', 'PAYDAY2', 'BBT', 'PC', 'KF2', 'DST', 'PUBG'];
+    const games = ['Steam', 'Team Fortress 2', 'CS:GO', 'Dota 2', 'Artifact', 'H1Z1: King of the Kill', 'Rust', 'Unturned', 'PAYDAY 2', 'BattleBlock Theater', 'Primal Carnage: Extinction', 'Killing Floor 2', 'Don\'t Starve Together', 'PLAYERUNKNOWN\'S BATTLEGROUNDS'];
 
     useEffect(() => {
         localStorage.setItem('app', app || '');
     }, [app]);
 
     console.log('Button')
-    
+
     const handlerApp = (e: React.SyntheticEvent<EventTarget>) => setApp((e.target as HTMLInputElement).value || (e.target as HTMLInputElement).dataset.g);
 
     const GameButton = games.map((gameName) => {
@@ -35,3 +35,4 @@ const ButtonGames: React.FC = () => {
     )
 }
 export default React.memo(ButtonGames);
+

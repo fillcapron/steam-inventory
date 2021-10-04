@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import usePagination from "../hooks/usePagination";
 import { Items } from '../types/types';
 import Pagination from "./Paginations";
+import Panel from "./UI/Panels/Panel";
 
 interface ItemsProps {
     items: Items[],
@@ -14,7 +15,8 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
 
     return (
         <>
-            {currentItems.map((item: Items, i: number) => (
+            {
+            currentItems.length ? currentItems.map((item: Items, i: number) => (
                 <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`} key={i}>
                     <div className="item-listing-row" >
                         <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} className="item-listing-img" alt="..." />
@@ -25,7 +27,7 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
                         <div className="item-listing-count">{'x' + item.count}</div>
                     </div>
                 </Link>
-            ))}
+            )) : <Panel type={'info mt-2'}>Предметов не найдено</Panel>}
             <Pagination
                 currentPage={currentPage}
                 paginate={paginate}

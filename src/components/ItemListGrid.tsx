@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import usePagination from "../hooks/usePagination";
 import { Items } from "../types/types";
 import Pagination from "./Paginations";
+import Panel from "./UI/Panels/Panel";
 
 interface IProps {
     items: Items[]
@@ -13,14 +14,15 @@ const ItemListGrid: React.FC<IProps> = ({ items }) => {
 
     return (
         <>
-            <div className="list-grid">
-                {currentItems.map((item, i) => (
-                    <Link className="list-grid-item" to={`/item/${item.name}/${item.classid}`} key={i}>
-                        <span style={{ color: '#' + item.type.color }} className="item-count">{'x' + item.count}</span>
-                        <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} alt="..." />
-                        <span style={{ color: '#' + item.type.color }}>{item.name.length > 12 ? item.name.slice(0, 12) + '...' : item.name}</span>
-                    </Link>))}
-            </div>
+            {
+                currentItems.length ?
+                    <div className="list-grid"> {currentItems.map((item, i) => (
+                        <Link className="list-grid-item" to={`/item/${item.name}/${item.classid}`} key={i}>
+                            <span style={{ color: '#' + item.type.color }} className="item-count">{'x' + item.count}</span>
+                            <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} alt="..." />
+                            <span style={{ color: '#' + item.type.color }}>{item.name.length > 12 ? item.name.slice(0, 12) + '...' : item.name}</span>
+                        </Link>))} </div> : <Panel type={'info mt-2'}>Предметов не найдено</Panel>
+            }
             <Pagination
                 currentPage={currentPage}
                 paginate={paginate}
@@ -29,6 +31,6 @@ const ItemListGrid: React.FC<IProps> = ({ items }) => {
                 resultSearchNum={{ indexOfLastItem, indexOfFirstItem }}
             />
         </>
-            )
+    )
 }
-            export default ItemListGrid;
+export default ItemListGrid;

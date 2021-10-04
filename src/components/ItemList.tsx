@@ -3,9 +3,10 @@ import ItemListTable from './ItemListTable';
 import ItemListGrid from './ItemListGrid';
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import Sorting from './Sorting';
-import { MdViewHeadline, MdViewModule } from 'react-icons/md';
+import { MdList, MdViewModule } from 'react-icons/md';
 import Panel from './UI/Panels/Panel';
 import SkeletonItems from './UI/Loader/LoaderItems';
+import SelectedGame from './UI/Panels/SelectedGame';
 
 const ItemList: React.FC = () => {
     const { error, payload, loading } = usedTypedSelector(state => state.item);
@@ -15,18 +16,19 @@ const ItemList: React.FC = () => {
     const filtredItems = items?.filter((item) => item.name.toLowerCase().includes(searchValue)) || [];
 
 
-    if (loading) return <SkeletonItems/>
+    if (loading) return <SkeletonItems />
     if (error) return <h1>{error}</h1>
 
     return (
         <>
+            <SelectedGame />
             {
-                items ?
+                items.length ?
                     <div>
                         <div className="list-header">
                             <Sorting items={items} />
                             <div className="list-mode">
-                                <MdViewHeadline className="list-mode-table" onClick={() => setMode('table')} />
+                                <MdList className="list-mode-table" onClick={() => setMode('table')} />
                                 <MdViewModule className="list-mode-grid" onClick={() => setMode('grid')} />
                             </div>
                         </div>
@@ -36,7 +38,6 @@ const ItemList: React.FC = () => {
                                 :
                                 <ItemListGrid items={filtredItems} />
                         }
-
                     </div>
                     : <Panel type={'info mt-2'}>Нет предметов в инвентаре</Panel>
             }

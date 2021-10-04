@@ -5,6 +5,10 @@ const SkeletonItems: React.FC = () => {
     return (
         <>
             <SkeletonTheme color="#00000033" highlightColor="#8F98A0">
+                <div className="selectedGame">
+                    <Skeleton height={64} width={64} className="selectedGame-img" />
+                    <Skeleton height={64} width={552} className="selectedGame-name" />
+                </div>
                 <div className="list-header">
                     <Skeleton width={328} height={14} style={{ marginLeft: "10px" }} />
                     <div className="list-mode">

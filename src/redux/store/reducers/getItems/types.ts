@@ -1,7 +1,9 @@
 import { Items } from "../../../../types/types";
 
 export interface IPayload{
-    total?: number,
+    total_items?: number,
+    app?: number
+    bg?: string
     items: Items[] 
 }
 

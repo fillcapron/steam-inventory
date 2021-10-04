@@ -1,6 +1,9 @@
 .profile {
     max-width: 300px;
     color: honeydew;
+    &-name {
+        padding-right: 5px;
+    }
     & img {
         min-width: 32px;
         min-height: 32px;

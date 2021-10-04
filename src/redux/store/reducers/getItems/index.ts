@@ -3,7 +3,7 @@ import { ItemState } from './types'
 
 const initialState: ItemState = {
     payload: {
-        items: []
+        items: [],
     },
     loading: false,
     error: null,
@@ -19,13 +19,13 @@ export const ItemReducer = (state = initialState, action: ItemAction): ItemState
         case ItemActionType.FETCH_ITEMS_ERROR:
             return { ...state, loading: false, error: action.payload }
         case ItemActionType.SORT_ITEM_UP:
-            return { ...state, loading: false, error: null, payload: action.payload }
+            return { ...state, loading: false, error: null, payload: {...state.payload,  ...action.payload }}
         case ItemActionType.SORT_ITEM_DOWN:
-            return { ...state, loading: false, error: null, payload: action.payload }
+            return { ...state, loading: false, error: null, payload: {...state.payload,  ...action.payload } }
         case ItemActionType.SORT_ITEM_NAME:
-            return { ...state, loading: false, error: null, payload: action.payload }
+            return { ...state, loading: false, error: null, payload: {...state.payload,  ...action.payload } }
         case ItemActionType.SORT_ITEM_NAME_REVERSE:
-            return { ...state, loading: false, error: null, payload: action.payload }
+            return { ...state, loading: false, error: null, payload: {...state.payload,  ...action.payload } }
         default:
             return state
     }
