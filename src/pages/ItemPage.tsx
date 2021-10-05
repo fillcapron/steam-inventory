@@ -32,8 +32,10 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                         <div className="item-page-right">
                             <div className="item-description">
                                 <h1>{one_item.name}</h1>
-                                <p>Количество: {one_item.count}</p>
-                                <p>Цена продажи: {priceItem?.lowest_price}</p>
+                                <p>Количество: {one_item.count} шт.</p>
+                                <p>Редкость: {one_item.type.localized_tag_name}</p>
+                                <p>Цена продажи в Steam: {priceItem?.lowest_price}</p>
+                                <p>Цена продажи в других магазинах: {one_item.price} руб.</p>
                             </div>
                         </div>
                     </div>
