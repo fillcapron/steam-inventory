@@ -3,7 +3,7 @@ import { imgGame, GameAppId } from "./types";
 
 const ButtonGames: React.FC = () => {
     const [app, setApp] = useState<string | undefined>(localStorage.getItem('app') || '');
-    const games = ['Steam', 'Team Fortress 2', 'CS:GO', 'Dota 2', 'Artifact', 'H1Z1: King of the Kill', 'Rust', 'Unturned', 'PAYDAY 2', 'BattleBlock Theater', 'Primal Carnage: Extinction', 'Killing Floor 2', 'Don\'t Starve Together', 'PLAYERUNKNOWN\'S BATTLEGROUNDS'];
+    const games = ['Team Fortress 2', 'CS:GO', 'Dota 2', 'Rust', 'Unturned', 'PAYDAY 2', 'BattleBlock Theater', 'Primal Carnage: Extinction', 'Killing Floor 2', 'Don\'t Starve Together', 'PLAYERUNKNOWN\'S BATTLEGROUNDS', 'Artifact', 'H1Z1: King of the Kill', 'Steam'];
 
     useEffect(() => {
         localStorage.setItem('app', app || '');

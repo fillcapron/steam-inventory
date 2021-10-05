@@ -1,7 +1,7 @@
 import React from "react";
 import ItemList from '../components/ItemList';
 import Sidebar from "../components/blocks/Sidebar";
-import TakeInventory from "../components/blocks/Main";
+import Main from "../components/blocks/Main";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 
 const Home: React.FC = () => {
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     console.log(isFetching)
     return (
         !isFetching ?
-            <TakeInventory />
+            <Main />
             :
             <>
                 <div className="content min-height" style={{ background: `#1b2838 url(${payload.bg}) center top/100% no-repeat`}}>

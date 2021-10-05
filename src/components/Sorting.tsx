@@ -38,15 +38,15 @@ const Sorting: React.FC<IHeaderProps> = ({ items }) => {
                 <span>сортировать по:</span>
             </div>
             <div className="sorting-name" onClick={sortName}>
-                <span>название</span>
+                <span>названию</span>
                 <span className="sort-arrow">{isSortName.iconArrow}</span>
             </div>
             <div className="sorting-rarity">
-                <span>редкость</span>
+                <span>редкости</span>
                 <span className="sort-arrow"></span>
             </div>
             <div className="sorting-count" onClick={sortCount}>
-                <span>кол-во</span>
+                <span>кол-ву</span>
                 <span className="sort-arrow">{isSortCount.iconArrow}</span>
             </div>
         </div>

@@ -2,13 +2,13 @@ import InputFetch from "../UI/Input/InputFetch";
 import ButtonGames from "../UI/Button/ButtonGames";
 import PanelInfo from "../UI/Panels/InfoPanel";
 
-const TakeInventory: React.FC = () => {
+const Main: React.FC = () => {
 
     return (
         <div className="inventory-takeover">
             <div className="inventory-takeover-container">
                 <h1 className="header-title">Steam Inventory</h1>
-                <h3 className="header-subtitle">Calculate the value of your Steam Inventory</h3>
+                <h3 className="header-subtitle">Рассчитайте стоимость вашего инвентаря Steam</h3>
                 <InputFetch />
                 <PanelInfo>
                     <span>Выберите игру:</span>
@@ -21,4 +21,4 @@ const TakeInventory: React.FC = () => {
     )
 }
 
-export default TakeInventory;
+export default Main;

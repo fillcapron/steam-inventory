@@ -16,18 +16,20 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
     return (
         <>
             {
-            currentItems.length ? currentItems.map((item: Items, i: number) => (
-                <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`} key={i}>
-                    <div className="item-listing-row" >
-                        <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} className="item-listing-img" alt="..." />
-                        <div className="item-listing-name-block">
-                            <span className="item-listing-name">{item.name.length > 22 ? item.name.slice(0, 22) + '...' : item.name}</span>
-                        </div>
-                        <div className="item-listing-rarity"><span style={{ color: '#' + item.type.color }}>{item.type.localized_tag_name}</span></div>
-                        <div className="item-listing-count">{'x' + item.count}</div>
-                    </div>
-                </Link>
-            )) : <Panel type={'info mt-2'}>Предметов не найдено</Panel>}
+                currentItems.length ?
+                    currentItems.map((item: Items, i: number) => (
+                        <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`} key={i}>
+                            <div className="item-listing-row" >
+                                <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} className="item-listing-img" alt="..." />
+                                <div className="item-listing-name-block">
+                                    <span className="item-listing-name">{item.name.length > 22 ? item.name.slice(0, 22) + '...' : item.name}</span>
+                                </div>
+                                <div className="item-listing-rarity"><span style={{ color: '#' + item.type.color }}>{item.type.localized_tag_name}</span></div>
+                                <div className="item-listing-count">{'x' + item.count}</div>
+                            </div>
+                        </Link>
+                    ))
+                    : <Panel type={'info mt-2'}>Совпадений не найдено</Panel>}
             <Pagination
                 currentPage={currentPage}
                 paginate={paginate}
