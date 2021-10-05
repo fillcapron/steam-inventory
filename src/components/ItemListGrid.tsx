@@ -29,7 +29,7 @@ const ItemListGrid: React.FC<IProps> = ({ items }) => {
                                 </Link>))
                         }
                     </div>
-                    : <Panel type={'info mt-2 text-center'}>Совпадений не найдено</Panel>
+                    : <Panel type={'info mt-2 text-center'}>Предметов не найдено</Panel>
             }
             <Pagination
                 currentPage={currentPage}

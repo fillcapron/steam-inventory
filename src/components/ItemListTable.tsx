@@ -30,7 +30,7 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
                             </div>
                         </Link>
                     ))
-                    : <Panel type={'info mt-2 text-center'}>Совпадений не найдено</Panel>}
+                    : <Panel type={'info mt-2 text-center'}>Предметов не найдено</Panel>}
             <Pagination
                 currentPage={currentPage}
                 paginate={paginate}

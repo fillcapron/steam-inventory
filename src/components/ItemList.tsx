@@ -23,7 +23,7 @@ const ItemList: React.FC = () => {
         <>
             <SelectedGame />
             {
-                items.length ?
+                items?.length ?
                     <div>
                         <div className="list-header">
                             <Sorting items={items} />
