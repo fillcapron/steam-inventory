@@ -8,6 +8,7 @@ export interface Items {
     market_name: string,
     name: string,
     type: ITypeItem,
+    price: number
 }
 
 interface ITypeItem {

@@ -17,7 +17,7 @@ const ItemList: React.FC = () => {
 
 
     if (loading) return <SkeletonItems />
-    if (error) return <h1>{error}</h1>
+    if (error) return <Panel type={'danger mt-5 text-center'}>{error}</Panel>
 
     return (
         <>
@@ -39,7 +39,7 @@ const ItemList: React.FC = () => {
                                 <ItemListGrid items={filtredItems} />
                         }
                     </div>
-                    : <Panel type={'info mt-2'}>Нет предметов в инвентаре</Panel>
+                    : <Panel type={'info mt-2 text-center'}>Нет предметов в инвентаре</Panel>
             }
         </>
     )

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Link} from "react-router-dom"
 import { RouteComponentProps } from "react-router";
+import Panel from "../components/UI/Panels/Panel";
 import { useAction } from "../hooks/useActions";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 
@@ -11,7 +13,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
     const one_item = payload.items.find(elem => elem.name === match.params.id)!;
 
     if (loading) <h1>Загрузка</h1>
-    if (error) <h1>Ошибка</h1>
+    if (error) <Panel type={'danger mt-5'}>Возникла ошибка. Попробуйте заново.</Panel>
 
     useEffect(() => {
         fetchPrice(one_item?.market_hash_name, localStorage.getItem('app') || null, 5)
@@ -35,7 +37,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                             </div>
                         </div>
                     </div>
-                    : 'Загрузка'
+                    : <Panel type={'danger mt-5 text-center'}>Предмет не найден. <br/><Link to="/">Вернуться назад</Link></Panel>
             }
         </div>
     )

@@ -25,11 +25,11 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
                                     <span className="item-listing-name">{item.name.length > 22 ? item.name.slice(0, 22) + '...' : item.name}</span>
                                 </div>
                                 <div className="item-listing-rarity"><span style={{ color: '#' + item.type.color }}>{item.type.localized_tag_name}</span></div>
-                                <div className="item-listing-count">{'x' + item.count}</div>
+                                <div className="item-listing-count">{item.price ? item.price + ' руб.' :'x' + item.count}</div>
                             </div>
                         </Link>
                     ))
-                    : <Panel type={'info mt-2'}>Совпадений не найдено</Panel>}
+                    : <Panel type={'info mt-2 text-center'}>Совпадений не найдено</Panel>}
             <Pagination
                 currentPage={currentPage}
                 paginate={paginate}

@@ -40,13 +40,13 @@ interface IAppObject {
 
 const SelectedGame: React.FC = () => {
     const { payload } = usedTypedSelector(state => state.item);
-    const { total_items } = payload;
+    const { total_items, total_price } = payload;
     const game: string = localStorage.getItem('app')!
-    
+
     return (
         <div className="selectedGame">
             <img width="64px" height="64px" className="selectedGame-img" src={appImage[game]} alt={appName[game]} />
-            <div className="selectedGame-name"><h1>Инвентарь {appName[game]}</h1><p>Всего предметов: {total_items}</p></div>
+            <div className="selectedGame-name"><h1>Инвентарь {appName[game]}</h1><p>Всего предметов: {total_items} {total_price ? 'Стоимость: ' + total_price + ' руб.' : ''}  </p></div>
         </div>
     )
 }
