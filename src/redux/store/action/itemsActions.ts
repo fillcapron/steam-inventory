@@ -2,6 +2,34 @@ import { Dispatch } from "redux";
 import { ItemAction, ItemActionType } from "../../types/types";
 import { Items } from '../../../types/types';
 
+const RARITY_SORT = {
+	"базового класса": 10,
+	"Ширпотреб": 20,
+	"Промышленное качество": 30,
+	"Армейское качество": 40,
+	"высшего класса": 50,
+    "Заслуженный": 55,
+	"Запрещённое": 60,
+	"примечательного типа": 70,
+    "Исключительный": 75,
+    "Превосходный": 80,
+	"Засекреченное": 85,
+	"экзотического вида": 90,
+    "Мастерский": 93,
+	"Тайное": 95,
+	"Контрабанда": 97,
+	"экстраординарного типа": 99,
+
+	"Common": 10,
+	"Uncommon": 20,
+	"Rare": 30,
+	"Mythical": 40,
+	"Immortal": 50,
+	"Legendary": 60,
+	"Arcana": 70,
+} as {[key: string]: number};
+
+
 export const ItemsActions = {
     fetchItems: (id: string, app: string) => {
         return async (dispatch: Dispatch<ItemAction>) => {
@@ -20,14 +48,14 @@ export const ItemsActions = {
             }
         }
     },
-    sortUP: (items: Items[]) => {
+    sortCountItems: (items: Items[]) => {
         return (dispatch: Dispatch<ItemAction>) => {
-            dispatch({ type: ItemActionType.SORT_ITEM_UP, payload: { items: items.sort((a: Items, b: Items) => b.count - a.count) } });
+            dispatch({ type: ItemActionType.SORT_ITEM_COUNT, payload: { items: items.sort((a: Items, b: Items) => b.count - a.count) } });
         }
     },
-    sortDOWN: (items: Items[]) => {
+    sortRarityItems: (items: Items[]) => {
         return (dispatch: Dispatch<ItemAction>) => {
-            dispatch({ type: ItemActionType.SORT_ITEM_DOWN, payload: { items: items.sort((a: Items, b: Items) => a.count - b.count) } });
+            dispatch({ type: ItemActionType.SORT_ITEM_RARITY, payload: { items: items.sort((a: Items, b: Items) => RARITY_SORT[b.type.localized_tag_name] - RARITY_SORT[a.type.localized_tag_name]) } });
         }
     },
     searchItem: (str: string) => {
@@ -40,9 +68,9 @@ export const ItemsActions = {
             dispatch({ type: ItemActionType.SORT_ITEM_NAME, payload: { items: items.sort((a: Items, b: Items) => a.name.localeCompare(b.name)) } });
         }
     },
-    sortItemsNameReverse: (items: Items[]) => {
+    itemsReverse: (items: Items[]) => {
         return (dispatch: Dispatch<ItemAction>) => {
-            dispatch({ type: ItemActionType.SORT_ITEM_NAME_REVERSE, payload: { items: items.reverse() } });
+            dispatch({ type: ItemActionType.SORT_ITEM_REVERSE, payload: { items: items.reverse() } });
         }
     }
 }

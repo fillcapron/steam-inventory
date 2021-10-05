@@ -6,11 +6,11 @@ export enum ItemActionType {
     FETCH_ITEMS = 'FETCH_ITEMS',
     FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS',
     FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR',
-    SORT_ITEM_UP = 'SORT_UP',
-    SORT_ITEM_DOWN = 'SORT_DOWN',
+    SORT_ITEM_COUNT = 'SORT_UP',
+    SORT_ITEM_RARITY = 'SORT_UP',
     SEARCH_ITEM = 'SEARCH_ITEM',
     SORT_ITEM_NAME = 'SORT_NAME',
-    SORT_ITEM_NAME_REVERSE = 'SORT_NAME_REVERSE'
+    SORT_ITEM_REVERSE = 'SORT_NAME_REVERSE'
 }
 
 export enum PriceActionType {
@@ -38,16 +38,19 @@ interface FetchItemsErrorActions {
 }
 
 interface SortItemCount {
-    type: ItemActionType.SORT_ITEM_UP | ItemActionType.SORT_ITEM_DOWN,
+    type: ItemActionType.SORT_ITEM_COUNT
     payload: IPayload
 }
-
+interface SortItemRarity {
+    type: ItemActionType.SORT_ITEM_RARITY
+    payload: IPayload
+}
 interface SortItemName {
     type: ItemActionType.SORT_ITEM_NAME,
     payload: IPayload
 }
 interface SortItemNameReverse {
-    type: ItemActionType.SORT_ITEM_NAME_REVERSE,
+    type: ItemActionType.SORT_ITEM_REVERSE,
     payload: IPayload
 }
 interface SearchItem {
@@ -81,6 +84,6 @@ interface FetchProfileErrorActions {
     payload: string
 }
 
-export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItemCount | SearchItem | SortItemName | SortItemNameReverse;
+export type ItemAction = FetchItemsActions | FetchItemsSuccessActions | FetchItemsErrorActions | SortItemCount | SortItemRarity | SearchItem | SortItemName | SortItemNameReverse;
 export type PriceAction = FetchPriceActions | FetchPriceSuccessActions | FetchPriceErrorActions;
 export type ProfileAction = FetchProfileActions | FetchProfileSuccessActions | FetchProfileErrorActions;

@@ -8,16 +8,17 @@ interface IHeaderProps {
 }
 
 const Sorting: React.FC<IHeaderProps> = ({ items }) => {
-    const { sortUP, sortDOWN, sortItemsName, sortItemsNameReverse } = useAction();
+    const { sortCountItems, sortRarityItems, sortItemsName, itemsReverse } = useAction();
     const [isSortName, setSortItemsName] = useState({ isSort: false, iconArrow: [''] });
     const [isSortCount, setSortItemsCount] = useState({ isSort: false, iconArrow: [''] });
+    const [isSortRarity, setSortItemsRarity] = useState({ isSort: false, iconArrow: [''] });
 
     const sortCount = () => {
         if (!isSortCount.isSort) {
-            sortUP(items);
+            sortCountItems(items);
             setSortItemsCount({ isSort: true, iconArrow: ['▲'] });
         } else {
-            sortDOWN(items);
+            itemsReverse(items);
             setSortItemsCount({ isSort: false, iconArrow: ['▼'] });
         }
     }
@@ -27,8 +28,18 @@ const Sorting: React.FC<IHeaderProps> = ({ items }) => {
             sortItemsName(items);
             setSortItemsName({ isSort: true, iconArrow: ['▲'] });
         } else {
-            sortItemsNameReverse(items);
+            itemsReverse(items);
             setSortItemsName({ isSort: false, iconArrow: ['▼'] });
+        }
+    }
+
+    const sortRarity = () => {
+        if (!isSortRarity.isSort) {
+            sortRarityItems(items);
+            setSortItemsRarity({ isSort: true, iconArrow: ['▲'] })
+        } else {
+            itemsReverse(items);
+            setSortItemsRarity({ isSort: false, iconArrow: ['▼'] });
         }
     }
 
@@ -41,9 +52,9 @@ const Sorting: React.FC<IHeaderProps> = ({ items }) => {
                 <span>названию</span>
                 <span className="sort-arrow">{isSortName.iconArrow}</span>
             </div>
-            <div className="sorting-rarity">
+            <div className="sorting-rarity" onClick={sortRarity}>
                 <span>редкости</span>
-                <span className="sort-arrow"></span>
+                <span className="sort-arrow">{isSortRarity.iconArrow}</span>
             </div>
             <div className="sorting-count" onClick={sortCount}>
                 <span>кол-ву</span>
