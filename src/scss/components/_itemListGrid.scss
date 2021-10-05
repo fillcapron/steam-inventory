@@ -16,8 +16,16 @@
         }
     }
 }
-.item-count {
+.item-head {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    &-count {
     padding-left: 5px;
-    align-self: flex-start;
     color: #8F98A0;
+    }
+    &-price {
+        padding-right: 5px;
+        color: #8F98A0;
+    }
 }

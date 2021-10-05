@@ -20,7 +20,10 @@ const ItemListGrid: React.FC<IProps> = ({ items }) => {
                         {
                             currentItems.map((item, i) => (
                                 <Link className="list-grid-item" to={`/item/${item.name}/${item.classid}`} key={i}>
-                                    <span style={{ color: '#' + item.type.color }} className="item-count">{item.price ? item.price + ' руб.' : 'x' + item.count}</span>
+                                    <div className="item-head">
+                                        <span style={{ color: '#' + item.type.color }} className="item-head-count">{'x' + item.count}</span>
+                                        <span className="item-head-price">{item.price ? item.price + ' руб.' : ''}</span>
+                                    </div>
                                     <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} alt="..." />
                                     <span style={{ color: '#' + item.type.color }}>{item.name.length > 12 ? item.name.slice(0, 12) + '...' : item.name}</span>
                                 </Link>))
