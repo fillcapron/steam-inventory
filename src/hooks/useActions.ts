@@ -5,5 +5,5 @@ import { useMemo } from "react";
 
 export const useAction = () => {
     const dispatch = useDispatch();
-    return useMemo(() => bindActionCreators(allActions, dispatch),[dispatch])
+    return useMemo(() => bindActionCreators(allActions, dispatch), [dispatch])
 }

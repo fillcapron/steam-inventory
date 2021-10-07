@@ -3,15 +3,10 @@
     background-color: $dark;
 }
 .item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    &-img {
-        flex-grow: 1;
-    }
-    &-info {
-        display: flex;
-        flex-direction: column;
+    &-description {
+        & h1 {
+            font-size: 25px;
+        }
     }
 }
 .item-image {

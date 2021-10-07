@@ -6,7 +6,7 @@ export const PriceAtions = {
         return async (dispatch: Dispatch<PriceAction>) => {
             try {
                 dispatch({ type: PriceActionType.FETCH_PRICE })
-                const response = await fetch(`https://steam-inventory-test.herokuapp.com/price_item?name=${item_name}&app=${app}&currency=${currency}`)
+                const response = await fetch(`https://steam-inventory-test.herokuapp.com/price_item?name=${item_name.replace('#', '%23')}&app=${app}&currency=${currency}`)
                 const data = await response.json()
                 if (data.error) {
                     dispatch({ type: PriceActionType.FETCH_PRICE_ERROR, payload: 'Слишком частый запрос' })

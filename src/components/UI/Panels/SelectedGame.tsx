@@ -1,3 +1,4 @@
+import React from "react";
 import { usedTypedSelector } from "../../../hooks/useTypedSelector";
 
 const appImage = {
@@ -51,4 +52,4 @@ const SelectedGame: React.FC = () => {
     )
 }
 
-export default SelectedGame;
+export default React.memo(SelectedGame);

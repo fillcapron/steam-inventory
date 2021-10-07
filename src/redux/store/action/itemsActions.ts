@@ -55,7 +55,7 @@ export const ItemsActions = {
     },
     sortRarityItems: (items: Items[]) => {
         return (dispatch: Dispatch<ItemAction>) => {
-            dispatch({ type: ItemActionType.SORT_ITEM_RARITY, payload: { items: items.sort((a: Items, b: Items) => RARITY_SORT[b.type.localized_tag_name] - RARITY_SORT[a.type.localized_tag_name]) } });
+            dispatch({ type: ItemActionType.SORT_ITEM_RARITY, payload: { items: items.sort((a: Items, b: Items) => RARITY_SORT[b.rarity[0].localized_tag_name] - RARITY_SORT[a.rarity[0].localized_tag_name]) } });
         }
     },
     searchItem: (str: string) => {

@@ -18,7 +18,7 @@ const ItemList: React.FC = () => {
 
     if (loading) return <SkeletonItems />
     if (error) return <Panel type={'danger mt-5 text-center'}>{error}</Panel>
-
+    
     return (
         <>
             <SelectedGame />
