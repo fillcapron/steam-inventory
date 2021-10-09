@@ -2,7 +2,7 @@ import { Items } from "../../../../types/types";
 
 export interface IPayload{
     total_items?: number,
-    app?: number
+    app?: string
     bg?: string
     items: Items[],
     total_price?: number 
