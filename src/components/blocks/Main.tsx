@@ -12,7 +12,7 @@ const Main: React.FC = () => {
                 <InputFetch />
                 <PanelInfo>
                     <span>Выберите игру:</span>
-                    <div className="button-group" >
+                    <div>
                         <ButtonGames />
                     </div>
                 </PanelInfo>

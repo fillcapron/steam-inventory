@@ -1,6 +1,8 @@
 .button {
     &-group {
-        vertical-align: middle;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
     &-active {
         padding: 0;

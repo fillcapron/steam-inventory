@@ -31,7 +31,7 @@ const ButtonGames: React.FC = () => {
         )
     });
     return (
-        <div>{GameButton}</div>
+        <div className="button-group">{GameButton}</div>
     )
 }
 export default React.memo(ButtonGames);
