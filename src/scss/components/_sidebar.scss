@@ -1,6 +1,9 @@
 .sidebar {
     margin-top: 15px;
     padding: 0 12px;
+    @media (max-width: 640px) {
+        text-align: center;
+    }
     &-block {
         background: $dark;
         padding: 12px 15px 15px 15px;
