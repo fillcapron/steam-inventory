@@ -2,8 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     font-size: 75.7%;
-    height: 2.25em;
+    min-height: 2.25em;
     line-height: 2.25em;
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
     & span:not(:last-child) {
         border-bottom: 1px gray dashed;
     }
@@ -19,12 +22,10 @@
     &-rarity {
         padding-left: 10px;
         text-transform: uppercase;
-        text-align: center;
         @extend %hover-sort;
     }
     &-count {
         padding-left: 10px;
-        text-align: center;
         text-transform: uppercase;
         @extend %hover-sort;
     }

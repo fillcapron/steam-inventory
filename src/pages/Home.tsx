@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             :
             <>
                 <div className="content min-height" style={{ background: `#1b2838 url(${payload.bg}) center top/100% no-repeat`}}>
-                    <div className="row">
+                    <div className="_row">
                         {/* <div className="d-flex">
                             <div>
                                 <InputFetch />

@@ -18,7 +18,7 @@ const ItemListTable: React.FC<ItemsProps> = ({ items }) => {
             {
                 currentItems.length ?
                     currentItems.map((item: Items, i: number) => (
-                        <Link className="item-listing-row-link" to={`/item/${item.name}/${item.classid}`} key={i}>
+                        <Link className="item-listing-link" to={`/item/${item.name}/${item.classid}`} key={i}>
                             <div className="item-listing-row" >
                                 <img src={'https://community.akamai.steamstatic.com/economy/image/' + item.icon_url + '/62fx62f'} className="item-listing-img" alt="..." />
                                 <div className="item-listing-name-block">

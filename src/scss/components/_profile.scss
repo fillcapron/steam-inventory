@@ -1,8 +1,13 @@
 .profile {
     max-width: 300px;
     color: honeydew;
+    display: flex;
+    align-items: center;
     &-name {
+        white-space: nowrap;
+        overflow: hidden;
         padding-right: 5px;
+        text-overflow: ellipsis;
     }
     & img {
         min-width: 32px;

@@ -10,14 +10,18 @@ body {
     background: #1b2838;
     color: #8F98A0;
 }
-#root {
-    min-height: 100%;
-    padding-top: 48px;
-}
+
 .content {
-    width: 940px;
+    width: 970px;
     margin: 0 auto;
+    @media (max-width: 1200px) {
+        width: 600px;
+    }
+    @media (max-width: 640px) {
+        width: 320px;
+    }
 }
+
 a {
 text-decoration: none;
 }

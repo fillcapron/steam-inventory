@@ -1,12 +1,15 @@
 .sidebar {
-    width: 32%;
     margin-top: 15px;
+    padding: 0 12px;
     &-block {
         background: $dark;
         padding: 12px 15px 15px 15px;
         &-title {
             font-size: 15px;
             color: #4582A5;
+        }
+        @media (max-width: 640px) {
+            text-align: center;
         }
     }
 }
