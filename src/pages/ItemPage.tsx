@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom"
-import { RouteComponentProps } from "react-router";
+import { RouteComponentProps, useHistory } from "react-router";
 import Panel from "../components/UI/Panels/Panel";
 import { useAction } from "../hooks/useActions";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import { Items } from "../types/types";
+import SkeletonItem from "../components/UI/Loader/LoaderItem";
 
 const appImage = {
     '753': 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/753/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg',
@@ -30,15 +31,16 @@ interface IAppObject {
 const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
     const { payload } = usedTypedSelector(state => state.item);
     const { priceItem, error, loading } = usedTypedSelector(state => state.price);
+    const history = useHistory();
     const { fetchPrice } = useAction();
     const one_item: Items = payload.items.find(elem => elem.name === match.params.id)!;
-
+    console.log(history)
     useEffect(() => {
         fetchPrice(one_item?.market_hash_name, localStorage.getItem('app') || null, 5)
     }, [fetchPrice, one_item?.market_hash_name])
 
-    if (loading) return <h1>Загрузка</h1>
-    if (error) return <Panel type={'danger mt-5'}>Возникла ошибка. Попробуйте заново.</Panel>
+    if (loading) return <SkeletonItem />
+    if (error) return <Panel type={'danger mt-5 text-center'}>Возникла ошибка. Попробуйте заново.<br /><Link to="/">Вернуться назад</Link></Panel>
 
     return (
         <div className="content">
@@ -54,14 +56,15 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                             <div className="item-description">
                                 <h1>{one_item.name}</h1>
                                 <div className="item-description-header">
-                                    <img src={appImage[payload.app!]} className="item-image-screen" alt={payload.app} />
-                                    <p>{one_item.type ? one_item.type[0].localized_tag_name : ''}, {one_item.type ? one_item.quality[0].localized_tag_name : ''}</p>
+                                    <img src={appImage[payload.app!]} alt={payload.app} width="32px" height="32px"/>
+                                    <p>{one_item.type ? one_item.type[0]?.localized_tag_name : ''}, {one_item.type ? one_item.quality[0]?.localized_tag_name : ''}</p>
                                 </div>
 
-                                <p>Количество шт. в инвентаре: {one_item.count}</p>
-                                <p>Редкость: {one_item.rarity[0]?.localized_tag_name}</p>
-                                <p>Цена продажи в Steam: {priceItem?.lowest_price}</p>
-                                <p>Цена продажи в других магазинах: {one_item.price} руб.</p>
+                                <p>Количество "шт." в инвентаре:  <span className="item-description-values">{one_item.count}</span></p>
+                                <p>Редкость: <span style={{color: '#' + one_item.rarity[0].color}}>{one_item.rarity[0]?.localized_tag_name}</span></p>
+                                <p>Цена в Steam: <span className="item-description-values">{priceItem?.lowest_price}</span></p>
+                                <p>Цена на других площадках:  <span className="item-description-values">{one_item.price} руб.</span></p>
+                                <button className="btn btn-success mt-3" onClick={() => history.goBack()}>Вернуться назад</button>
                             </div>
                         </div>
                     </div>
