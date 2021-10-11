@@ -1,7 +1,8 @@
 export interface Items {
     classid: string,
     count: number,
-    description: [],
+    descriptions: ITypeItem[],
+    meta:ITypeItem[],
     icon_url: string,
     instanceid: string,
     market_hash_name: string,

@@ -47,7 +47,7 @@ const SelectedGame: React.FC = () => {
     return (
         <div className="selectedGame">
             <img width="64px" height="64px" className="selectedGame-img" src={appImage[game]} alt={appName[game]} />
-            <div className="selectedGame-name"><h1>Инвентарь {appName[game]}</h1><p>Всего предметов: {total_items ? total_items : 0}</p><p>{total_price ? 'Стоимость: ' + total_price + ' руб.' : ''}  </p></div>
+            <div className="selectedGame-name"><h1>Инвентарь {appName[game]}</h1><p>Всего предметов: <span>{total_items ? total_items : 0}</span></p><p>Стоимость: <span>{total_price ? total_price + ' руб.' : ''}</span></p></div>
         </div>
     )
 }

@@ -7,10 +7,10 @@ const SkeletonItems: React.FC = () => {
             <SkeletonTheme color="#00000033" highlightColor="#8F98A0">
                 <div className="selectedGame">
                     <Skeleton height={64} width={64} className="selectedGame-img" />
-                    <Skeleton height={64} style={{ minWidth: 260 }}  className="selectedGame-name" />
+                    <div className="selectedGame-name"><Skeleton width={200} height={70} className="selectedGame-name" /></div>
                 </div>
                 <div className="list-header">
-                    <Skeleton  height={14} style={{ marginLeft: 10, minWidth: 250 }} />
+                    <Skeleton height={14} style={{ marginLeft: 10, minWidth: 250 }} />
                     <div className="list-mode">
                         <MdViewHeadline className="list-mode-table" />
                         <MdViewModule className="list-mode-grid" />

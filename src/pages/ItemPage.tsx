@@ -6,6 +6,7 @@ import { useAction } from "../hooks/useActions";
 import { usedTypedSelector } from "../hooks/useTypedSelector";
 import { Items } from "../types/types";
 import SkeletonItem from "../components/UI/Loader/LoaderItem";
+import ReactHtmlParser from 'react-html-parser';
 
 const appImage = {
     '753': 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/753/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg',
@@ -33,11 +34,19 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
     const { priceItem, error, loading } = usedTypedSelector(state => state.price);
     const history = useHistory();
     const { fetchPrice } = useAction();
-    const one_item: Items = payload.items.find(elem => elem.name === match.params.id)!;
-    console.log(history)
+
+    let one_item: Items = payload.items.find(elem => elem.name === match.params.id)!;
+    const app = localStorage.getItem('app')!;
+
+    if (one_item) {
+        sessionStorage.setItem('lastItem', JSON.stringify(one_item));
+    } else {
+        one_item = JSON.parse(sessionStorage.getItem('lastItem')!);
+    }
+
     useEffect(() => {
-        fetchPrice(one_item?.market_hash_name, localStorage.getItem('app') || null, 5)
-    }, [fetchPrice, one_item?.market_hash_name])
+        fetchPrice(one_item?.market_hash_name, app, 5)
+    }, [fetchPrice, one_item?.market_hash_name, app])
 
     if (loading) return <SkeletonItem />
     if (error) return <Panel type={'danger mt-5 text-center'}>Возникла ошибка. Попробуйте заново.<br /><Link to="/">Вернуться назад</Link></Panel>
@@ -56,12 +65,14 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                             <div className="item-description">
                                 <h1>{one_item.name}</h1>
                                 <div className="item-description-header">
-                                    <img src={appImage[payload.app!]} alt={payload.app} width="32px" height="32px"/>
-                                    <p>{one_item.type ? one_item.type[0]?.localized_tag_name : ''}, {one_item.type ? one_item.quality[0]?.localized_tag_name : ''}</p>
+                                    <img src={appImage[app]} alt={app} width="32px" height="32px" />
+                                    <p>{one_item.type ? one_item.type[0]?.localized_tag_name : ''}, {one_item.quality ? one_item.quality[0]?.localized_tag_name : ''}<br /><span style={{ color: '#' + one_item.rarity[0]?.color }}>{one_item.rarity[0]?.localized_tag_name}</span> {one_item.meta ? one_item.meta[0]?.localized_tag_name : ''}</p>
                                 </div>
-
+                                <br />
+                                {one_item.descriptions.map((elem, i) => {
+                                    return (<div key={i}>{ReactHtmlParser(elem.value)}</div>)
+                                })}
                                 <p>Количество "шт." в инвентаре:  <span className="item-description-values">{one_item.count}</span></p>
-                                <p>Редкость: <span style={{color: '#' + one_item.rarity[0].color}}>{one_item.rarity[0]?.localized_tag_name}</span></p>
                                 <p>Цена в Steam: <span className="item-description-values">{priceItem?.lowest_price}</span></p>
                                 <p>Цена на других площадках:  <span className="item-description-values">{one_item.price} руб.</span></p>
                                 <button className="btn btn-success mt-3" onClick={() => history.goBack()}>Вернуться назад</button>
