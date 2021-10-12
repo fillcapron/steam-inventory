@@ -69,9 +69,9 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                                     <p>{one_item.type ? one_item.type[0]?.localized_tag_name : ''}, {one_item.quality ? one_item.quality[0]?.localized_tag_name : ''}<br /><span style={{ color: '#' + one_item.rarity[0]?.color }}>{one_item.rarity[0]?.localized_tag_name}</span> {one_item.meta ? one_item.meta[0]?.localized_tag_name : ''}</p>
                                 </div>
                                 <div className="item-description-describe">
-                                {one_item.descriptions.map((elem, i) => {
-                                    return (<div key={i}>{ReactHtmlParser(elem.value)}</div>)
-                                })}
+                                    {one_item.descriptions.map((elem, i) => {
+                                        return (<div key={i}>{ReactHtmlParser(elem.value)}</div>)
+                                    })}
                                 </div>
                                 <p>Количество "шт." в инвентаре:  <span className="item-description-values">{one_item.count}</span></p>
                                 <p>Цена в Steam: <span className="item-description-values">{priceItem?.lowest_price}</span></p>

@@ -1,6 +1,6 @@
 .sidebar {
     margin-top: 15px;
-    padding: 0 12px;
+    padding: 0 0 0 12px;
     @media (max-width: 640px) {
         text-align: center;
         padding: 0;
@@ -8,19 +8,25 @@
     &-block {
         background: $dark;
         padding: 12px 15px 15px 15px;
+        display: flex;
+        flex-direction: column;
         &-title {
             font-size: 15px;
             color: #4582A5;
         }
+        &-search {
+            margin-bottom: 20px;
+        }
         @media (max-width: 640px) {
             text-align: center;
+            flex-direction: column-reverse;
         }
     }
 }
 
 .itemSearchBox {
     margin-top: 5px;
-    width: 253px;
+    width: 275px;
     height: 25px;
     border-radius: 0px;
     color: #fff;
