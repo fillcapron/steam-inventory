@@ -1,5 +1,5 @@
 # steam-inventory
-<span style="display:block;text-align:center">![Alt-текст](https://sun9-61.userapi.com/impf/Dg5o-zxgT9bBN8Q5ctEI8M080eSZFnrhWZBFbQ/03tMw8Q2D4E.jpg?size=1491x817&quality=96&sign=fcf370ffbec1002abd47b5424e07cb6f&type=album "steam-inventory")</span>
+<span style="display:block;text-align:center">![Alt-текст](https://sun9-39.userapi.com/impf/Hckxhm4QXI0PrnxMQRuT1zw0DQxr2BNdWp-Lag/MTw6TEaPhaQ.jpg?size=1491x600&quality=96&sign=8092c25a63f4ffcffb5bfbdc5c2cb19f&type=album "steam-inventory")</span>
 
 Интернет приложение для проверки инветаря пользователя **Steam**:
 + Отображение инвентаря по конкретной игре или приложению Steam
