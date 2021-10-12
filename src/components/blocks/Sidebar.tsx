@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
                 <input placeholder="Поиск" value={searchValue ? searchValue : ''} className="itemSearchBox" onChange={(e) => search(e)} />
             </div>
             <div>
-                <span className="sidebar-block-title"><a>Ввести другой SteamID?</a></span>
+                <span className="sidebar-block-title">Ввести другой SteamID?</span>
                 <InputFetch styles={'-mini'} />
                 <span className="sidebar-block-title">Выбрать другую игру?</span>
                 <ButtonGames />
