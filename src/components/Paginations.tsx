@@ -45,7 +45,7 @@ const Pagination: React.FC<IPagination> = ({ currentPage, itemsPerPage, countIte
                         )
                         : pageNumbers.slice(currentPage - 1, currentPage + 14).map(num => (
                             <span key={num} className={currentPage === num ? 'paging-link active' : 'paging-link'}>
-                                <span className="pageNum" onClick={() => paginate(num)}>
+                                <span onClick={() => paginate(num)}>
                                     {num}
                                 </span>
                             </span>
