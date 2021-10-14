@@ -21,7 +21,7 @@ const InputFetch: React.FC<IInputProps> = ({ styles }) => {
         <>
             {isError.error ? <div className="w-800 center"><Panel type="danger">{isError.description}</Panel></div> : null}
             <div className={'inventory-takeover-input' + (styles || '') + ' w-800'}>
-                <input type="text" value={id} onChange={handlerId} placeholder="URL профиля или Steam ID" />
+                <input type="text" value={id} onChange={handlerId} placeholder="Введите URL профиля или Steam ID" />
                 <button className="btn btn-success" onClick={() => getInventory()}>Получить</button>
             </div>
         </>
