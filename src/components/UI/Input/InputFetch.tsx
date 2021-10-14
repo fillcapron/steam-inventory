@@ -17,7 +17,6 @@ const InputFetch: React.FC<IInputProps> = ({ styles }) => {
 
     const handlerId = (e: React.SyntheticEvent<EventTarget>) => setId((e.target as HTMLInputElement).value);
 
-    console.log('Input')
     return (
         <>
             {isError.error ? <div className="w-800 center"><Panel type="danger">{isError.description}</Panel></div> : null}

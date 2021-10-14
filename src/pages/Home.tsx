@@ -7,7 +7,6 @@ import { usedTypedSelector } from "../hooks/useTypedSelector";
 const Home: React.FC = () => {
     const { isFetching, payload } = usedTypedSelector(state => state.item);
 
-    console.log(isFetching)
     return (
         !isFetching ?
             <Main />
