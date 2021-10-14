@@ -1,6 +1,6 @@
 import { usedTypedSelector } from '../../hooks/useTypedSelector';
 import Profile from '../Profile';
-import logo from '../../logo-steam.png';
+import logo from '../../assets/images/logo-steam.png';
 
 const Header: React.FC = () => {
     const { isFetching } = usedTypedSelector(state => state.item);

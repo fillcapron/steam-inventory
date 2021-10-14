@@ -18,7 +18,7 @@ export const useFetchItems = (): [IError, Function] => {
             fetchItems(id, app)
             setError({ ...isError, error: false });
         } else {
-            setError({ error: true, description: app ? 'Вы не ввели Steam ID' : 'Вы не выбрали игру' });
+            setError({ error: true, description: app ? 'Вы не ввели url профиля или Steam ID' : 'Вы не выбрали игру' });
         }
     }
 
