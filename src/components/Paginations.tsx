@@ -34,7 +34,7 @@ const Pagination: React.FC<IPagination> = ({ currentPage, itemsPerPage, countIte
             <nav>
                 <ul className="paging-controls">
                     <span className={currentPage !== 1 ? 'pagebtn' : 'pagebtn disabled'} onClick={prevPage}>&#60;</span>
-                    {pageNumbers.length < 20 ?
+                    {pageNumbers.length < 15 ?
                         pageNumbers.map(num => (
                             <span key={num} className={currentPage === num ? 'paging-link active' : 'paging-link'}>
                                 <span onClick={() => paginate(num)}>
@@ -43,7 +43,7 @@ const Pagination: React.FC<IPagination> = ({ currentPage, itemsPerPage, countIte
                             </span>
                         )
                         )
-                        : pageNumbers.slice(currentPage - 1, currentPage + 14).map(num => (
+                        : pageNumbers.slice(currentPage - 1, currentPage + 12).map(num => (
                             <span key={num} className={currentPage === num ? 'paging-link active' : 'paging-link'}>
                                 <span onClick={() => paginate(num)}>
                                     {num}

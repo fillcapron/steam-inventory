@@ -34,15 +34,14 @@
         @media (max-width: 640px) {
             display: flex;
             padding-top: 10px;
-            justify-content: space-between;
+            justify-content: center;
         }
     }
     &-controls {
+        display: flex;
         height: 17px;
         line-height: 17px;
-        @media (max-width: 640px) {
-            padding: 0;
-        }
+        padding: 0;
     }
 }
 
