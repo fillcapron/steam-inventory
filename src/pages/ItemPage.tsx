@@ -58,7 +58,7 @@ const ItemPage: React.FC<RouteComponentProps> = ({ match }: any) => {
                     <div className="item-page">
                         <div className="item-page-left">
                             <div className="item-image">
-                                <img src={'https://community.akamai.steamstatic.com/economy/image/' + one_item.icon_url + '/360fx360f'} className="item-image-screen" alt={one_item.name} />
+                                <img src={'https://community.akamai.steamstatic.com/economy/image/' + one_item.icon_url + '/350fx350f'} className="item-image-screen" alt={one_item.name} />
                             </div>
                         </div>
                         <div className="item-page-right">
