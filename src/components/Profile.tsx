@@ -26,4 +26,4 @@ const Profile: React.FC = () => {
         </>
     )
 }
-export default React.memo(Profile);
+export default Profile;
