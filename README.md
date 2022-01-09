@@ -1,5 +1,5 @@
 # steam-inventory
-Интернет приложение для проверки инветаря пользователя **Steam**
+Интернет приложение для проверки инвентаря пользователя **Steam**
 <span style="display:block;text-align:center">![Alt-текст](https://sun9-39.userapi.com/impf/Hckxhm4QXI0PrnxMQRuT1zw0DQxr2BNdWp-Lag/MTw6TEaPhaQ.jpg?size=1491x600&quality=96&sign=8092c25a63f4ffcffb5bfbdc5c2cb19f&type=album "steam-inventory")</span>
 <p align="center"><a href="https://steam-inventory.vercel.app">Смотреть демо</a></p>
 
